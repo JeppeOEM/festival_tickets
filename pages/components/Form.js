@@ -8,16 +8,15 @@ const Form = () => {
     },
   ];
   const [formFields, setFormFields] = useState(CheakoutData);
-  const handleFormChange = (event, index) => {
+  const handleFormChange = (e, index) => {
     let data = [...formFields];
-    data[index][event.target.name] = event.target.value;
+    data[index][e.target.name] = e.target.value;
     setFormFields(data);
   };
   if (formFields.length === 4) {
   }
   const addFields = () => {
     let object = {
-      fullname: "",
       age: "",
     };
     setFormFields([...formFields, object]);
@@ -27,8 +26,8 @@ const Form = () => {
   //   data.splice(index, 1);
   //   setFormFields(data);
   // };
-  const submit = (event) => {
-    event.preventDefault();
+  const submit = (e) => {
+    e.preventDefault();
     console.log("grab da data", formFields);
   };
   return (
@@ -37,8 +36,8 @@ const Form = () => {
         return (
           <div key={index}>
             <form onSubmit={submit}>
-              <input name="fullname" placeholder="Participant Full Name" onChange={(event) => handleFormChange(event, index)} value={form.name} />
-              <input name="age" placeholder="Participant age" onChange={(event) => handleFormChange(event, index)} value={form.age} />
+              <input name="fullname" placeholder="Participant Full Name" onChange={(e) => handleFormChange(e, index)} value={form.name} />
+              <input name="age" placeholder="Participant age" onChange={(e) => handleFormChange(e, index)} value={form.age} />
               {/* <button onClick={() => removeField(index)}>delete participan</button> */}
             </form>
           </div>
