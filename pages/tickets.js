@@ -66,8 +66,8 @@ function Tickets() {
           </button>
         </div>
       </div>
-      <Link href="/camping">
-        <button>continue</button>
+      <Link href={{ pathname: "/camping", query: { regTickets: regular, vipTickets: vip } }}>
+        <button onClick={() => setTickets(true)}>continue</button>
       </Link>
     </>
   );
