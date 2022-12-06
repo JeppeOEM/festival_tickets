@@ -1,11 +1,4 @@
-import { useState } from "react";
-import Link from "next/link";
-
-function Tickets() {
-  // process status
-  const [tickets, setTickets] = useState(false);
-  const [regular, setRegular] = useState(0);
-  const [vip, setVip] = useState(0);
+function TicketOptions(props) {
 
   return (
     <>
@@ -19,18 +12,18 @@ function Tickets() {
         <div className="change-number">
           <button
             onClick={() => {
-              if (regular > 0) {
-                setRegular(regular - 1);
+              if (props.regular > 0) {
+                setRegular(props.regular - 1);
               }
             }}
           >
             -
           </button>
-          <span>{regular}</span>
+          <span>{props.regular}</span>
           <button
             onClick={() => {
-              if (regular < 10) {
-                setRegular(regular + 1);
+              if (props.regular < 10) {
+                setRegular(props.regular + 1);
               }
             }}
           >
@@ -47,8 +40,8 @@ function Tickets() {
         <div className="change-number">
           <button
             onClick={() => {
-              if (vip > 0) {
-                setVip(vip - 1);
+              if (props.vip > 0) {
+                setVip(props.vip - 1);
               }
             }}
           >
@@ -57,8 +50,8 @@ function Tickets() {
           <span>{vip}</span>
           <button
             onClick={() => {
-              if (vip < 5) {
-                setVip(vip + 1);
+              if (props.vip < 5) {
+                setVip(props.vip + 1);
               }
             }}
           >
@@ -66,11 +59,8 @@ function Tickets() {
           </button>
         </div>
       </div>
-      <Link href="/camping">
-        <button>continue</button>
-      </Link>
     </>
-  );
+  )
 }
 
-export default Tickets;
+export default TicketOptions
