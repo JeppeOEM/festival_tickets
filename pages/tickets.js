@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import BookingLayout from "../layout/bookingLayout";
-import Camping from "./camping";
+import Camping from "../components/Camping";
+import Areas from "../components/Areas";
 
 function Tickets() {
   // process status
@@ -11,9 +12,15 @@ function Tickets() {
   const [regular, setRegular] = useState(0);
   const [vip, setVip] = useState(0);
 
+  function completeCamping() {
+    console.log("complete camping works");
+    setCamping(true);
+    console.log(camping);
+  }
+
   return (
     <>
-      <BookingLayout step1={tickets} regTickets={regular} vipTickets={vip}>
+      <BookingLayout step1={tickets} step2={camping} step3={area} regTickets={regular} vipTickets={vip}>
         {!tickets && (
           <>
             <h2>Choose your tickets</h2>
@@ -77,7 +84,8 @@ function Tickets() {
           </>
         )}
 
-        {tickets && <Camping regTickets={regular} vipTickets={vip} status={camping} statusHandler={setCamping} />}
+        {tickets && !camping && <Camping regTickets={regular} vipTickets={vip} status={camping} statusHandler={completeCamping} />}
+        {camping && !area && <Areas regTickets={regular} vipTickets={vip} status={area} statusHandler={setArea} />}
 
         {/* <Link href={{ pathname: "/camping", query: { regTickets: regular, vipTickets: vip } }}>
           <button onClick={() => setTickets(true)}>continue</button>

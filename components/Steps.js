@@ -2,8 +2,10 @@ function Steps(props) {
   console.log(props.step1);
   return (
     <>
-      {!props.step1 && <span>step 1</span>}
-      {props.step1 && <span>step 2</span>}
+      <ul>
+        {!props.step1 && <li>step 1</li>}
+        {props.step1 && <li>step 2</li>}
+      </ul>
     </>
   );
 }
