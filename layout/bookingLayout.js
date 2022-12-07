@@ -7,7 +7,7 @@ function BookingLayout(props) {
       <Steps step1={props.step1} />
       <section className="step 1">
         {props.children}
-        <Order />
+        <Order regTickets={props.regTickets} vipTickets={props.vipTickets} />
       </section>
     </>
   );
