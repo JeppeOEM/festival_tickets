@@ -5,15 +5,17 @@ function Order(props) {
   return (
     <>
       <h2>Your order</h2>
-      {orders.map((entry) => {
-        if (entry[1] > 0) {
-          if (entry[0] === "regTickets") {
-            return `Regular tickets: ${entry[1]}`;
-          } else {
-            return `V.I.P. tickets: ${entry[1]}`;
+      <ul>
+        {orders.map((entry) => {
+          if (entry[1] > 0) {
+            if (entry[0] === "regTickets") {
+              return <li key={entry[0]}>`Regular tickets: ${entry[1]}`</li>;
+            } else {
+              return <li key={entry[0]}>`V.I.P. tickets: ${entry[1]}`</li>;
+            }
           }
-        }
-      })}
+        })}
+      </ul>
     </>
   );
 }
