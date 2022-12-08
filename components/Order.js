@@ -1,7 +1,7 @@
 function Order(props) {
   let orders = Object.entries(props);
-  console.log(orders);
-  console.log(orders[0][0]);
+  // console.log(orders);
+  // console.log(orders[0][0]);
   return (
     <>
       <h2>Your order</h2>

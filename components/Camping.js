@@ -17,6 +17,10 @@ function Camping(props) {
   const [three, setThree] = useState(0);
 
   const allTickets = props.regTickets + props.vipTickets;
+  // let alteredTickets = allTickets;
+  // console.log(allTickets);
+
+  const [copy, setCopy] = useState(allTickets);
 
   return (
     <>
@@ -26,6 +30,8 @@ function Camping(props) {
           <div className="change-number">
             <button
               onClick={() => {
+                setCopy(copy + 1);
+
                 if (regular > 0) {
                   setRegular(regular - 1);
                 }
@@ -36,7 +42,8 @@ function Camping(props) {
             <span>{regular}</span>
             <button
               onClick={() => {
-                if (regular < allTickets) {
+                setCopy(copy - 1);
+                if (copy > 0) {
                   setRegular(regular + 1);
                 }
               }}
@@ -51,6 +58,7 @@ function Camping(props) {
             <div className="change-number">
               <button
                 onClick={() => {
+                  setCopy(copy + 2);
                   if (two > 0) {
                     setTwo(two - 1);
                   }
@@ -61,7 +69,8 @@ function Camping(props) {
               <span>{two}</span>
               <button
                 onClick={() => {
-                  if (two < allTickets / 2) {
+                  setCopy(copy - 2);
+                  if (copy % 2 === 0) {
                     setTwo(two + 1);
                   }
                 }}
@@ -77,6 +86,7 @@ function Camping(props) {
             <div className="change-number">
               <button
                 onClick={() => {
+                  setCopy(copy + 3);
                   if (three > 0) {
                     setThree(three - 1);
                   }
@@ -87,7 +97,8 @@ function Camping(props) {
               <span>{three}</span>
               <button
                 onClick={() => {
-                  if (three < allTickets / 3) {
+                  setCopy(copy - 3);
+                  if (copy % 3 === 0) {
                     setThree(three + 1);
                   }
                 }}
@@ -104,7 +115,7 @@ function Camping(props) {
               <div className="change-number">
                 <button
                   onClick={() => {
-                    allTickets += 2;
+                    setCopy(copy + 2);
                     if (two > 0) {
                       setTwo(two - 1);
                     }
@@ -115,9 +126,10 @@ function Camping(props) {
                 <span>{two}</span>
                 <button
                   onClick={() => {
-                    allTickets -= 2;
-                    if (allTickets > 1) {
+                    setCopy(copy - 2);
+                    if (copy > 1) {
                       setTwo(two + 1);
+                      console.log(copy);
                     }
                   }}
                 >
@@ -130,6 +142,7 @@ function Camping(props) {
               <div className="change-number">
                 <button
                   onClick={() => {
+                    setCopy(copy + 3);
                     if (three > 0) {
                       setThree(three - 1);
                     }
@@ -140,7 +153,8 @@ function Camping(props) {
                 <span>{three}</span>
                 <button
                   onClick={() => {
-                    if (allTickets > 2) {
+                    setCopy(copy - 3);
+                    if (copy > 2) {
                       setThree(three + 1);
                     }
                   }}

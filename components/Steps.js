@@ -1,5 +1,5 @@
 function Steps(props) {
-  console.log(props.step1);
+  // console.log(props.step1);
   return (
     <>
       <ul>
