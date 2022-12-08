@@ -10,8 +10,21 @@ function Order(props) {
           if (entry[1] > 0) {
             if (entry[0] === "regTickets") {
               return <li key={entry[0]}>Regular tickets: {entry[1]}</li>;
-            } else {
+            }
+            if (entry[0] === "vipTickets") {
               return <li key={entry[0]}>V.I.P. tickets: {entry[1]}</li>;
+            }
+            if (entry[0] === "regCamping") {
+              return <li key={entry[0]}>Regular camping spot: {entry[1]}</li>;
+            }
+            if (entry[0] === "twoCamping") {
+              return <li key={entry[0]}>Pre-setup 2-people tent: {entry[1]}</li>;
+            }
+            if (entry[0] === "threeCamping") {
+              return <li key={entry[0]}>Pre-setup 3-people tent: {entry[1]}</li>;
+            }
+            if (entry[0] === "greenCamping") {
+              return <li key={entry[0]}>Green camping: {entry[1]}</li>;
             }
           }
         })}

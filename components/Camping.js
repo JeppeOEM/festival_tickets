@@ -15,13 +15,14 @@ function Camping(props) {
   const [regular, setRegular] = useState(0);
   const [two, setTwo] = useState(0);
   const [three, setThree] = useState(0);
+  const [green, setGreen] = useState(0);
 
   const allTickets = props.regTickets + props.vipTickets;
   const [copy, setCopy] = useState(allTickets);
 
   return (
     <>
-      <BookingLayout>
+      <BookingLayout regCamping={regular} twoCamping={two} threeCamping={three} greenCamping={green}>
         <div className="camping-option">
           <h3>Regular camping spot</h3>
           <div className="change-number">
@@ -163,6 +164,27 @@ function Camping(props) {
         )}
         <div className="camping-option">
           <h3>Green camping</h3>
+          <div className="change-number">
+            <button
+              onClick={() => {
+                if (green > 0) {
+                  setGreen(green - 1);
+                }
+              }}
+            >
+              -
+            </button>
+            <span>{green}</span>
+            <button
+              onClick={() => {
+                if (green < allTickets) {
+                  setGreen(green + 1);
+                }
+              }}
+            >
+              +
+            </button>
+          </div>
         </div>
         <button onClick={props.statusHandler}>continue</button>
       </BookingLayout>
