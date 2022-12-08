@@ -1,3 +1,7 @@
+export const getStaticProps = async () => {
+  // runs ONLY at build time, not in a browser
+};
+
 function Areas(props) {
   return (
     <>

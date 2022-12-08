@@ -17,10 +17,12 @@ function Order(props) {
             if (entry[0] === "regCamping") {
               return <li key={entry[0]}>Regular camping spot: {entry[1]}</li>;
             }
-            if (entry[0] === "twoCamping") {
+            if (entry[0] === "doubleTent") {
+              console.log("adding 2ppl tent");
               return <li key={entry[0]}>Pre-setup 2-people tent: {entry[1]}</li>;
             }
-            if (entry[0] === "threeCamping") {
+            if (entry[0] === "trippleTent") {
+              console.log("adding 3ppl tent");
               return <li key={entry[0]}>Pre-setup 3-people tent: {entry[1]}</li>;
             }
             if (entry[0] === "greenCamping") {

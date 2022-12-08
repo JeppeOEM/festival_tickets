@@ -49,7 +49,7 @@ function Camping(props) {
             </button>
           </div>
         </div>
-        {allTickets % 2 === 0 && (
+        {/* {(allTickets % 2 === 0 || allTickets % 2 === 1) && (
           <div className="camping-option">
             <h3>Pre-setup tent for 2 people</h3>
             <div className="change-number">
@@ -76,8 +76,8 @@ function Camping(props) {
               </button>
             </div>
           </div>
-        )}
-        {allTickets % 3 === 0 && (
+        )} */}
+        {/* {(allTickets % 3 === 0 || allTickets % 3 === 1) && (
           <div className="camping-option">
             <h3>Pre-setup tent for 3 people</h3>
             <div className="change-number">
@@ -104,18 +104,19 @@ function Camping(props) {
               </button>
             </div>
           </div>
-        )}
-        {(allTickets % 5 === 0 || (allTickets % 5) % 2 === 0 || (allTickets % 5) % 3 === 0) && (
+        )} */}
+        {(allTickets % 2 === 0 || allTickets % 3 === 0 || allTickets % 5 === 0 || (allTickets % 5) % 2 === 0 || (allTickets % 5) % 3 === 0) && (
           <>
             <div className="camping-option">
               <h3>Pre-setup tent for 2 people</h3>
               <div className="change-number">
                 <button
                   onClick={() => {
-                    setCopy(copy + 2);
                     if (two > 0) {
+                      setCopy(copy + 2);
                       setTwo(two - 1);
                     }
+                    console.log(copy);
                   }}
                 >
                   -
