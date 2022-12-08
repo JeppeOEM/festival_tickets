@@ -17,9 +17,6 @@ function Camping(props) {
   const [three, setThree] = useState(0);
 
   const allTickets = props.regTickets + props.vipTickets;
-  // let alteredTickets = allTickets;
-  // console.log(allTickets);
-
   const [copy, setCopy] = useState(allTickets);
 
   return (
@@ -31,8 +28,7 @@ function Camping(props) {
             <button
               onClick={() => {
                 setCopy(copy + 1);
-
-                if (regular > 0) {
+                if (copy > 0) {
                   setRegular(regular - 1);
                 }
               }}
