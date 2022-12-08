@@ -28,8 +28,8 @@ function Camping(props) {
           <div className="change-number">
             <button
               onClick={() => {
-                setCopy(copy + 1);
                 if (copy > 0) {
+                  setCopy(copy + 1);
                   setRegular(regular - 1);
                 }
               }}
@@ -140,8 +140,8 @@ function Camping(props) {
               <div className="change-number">
                 <button
                   onClick={() => {
-                    setCopy(copy + 3);
                     if (three > 0) {
+                      setCopy(copy + 3);
                       setThree(three - 1);
                     }
                   }}
