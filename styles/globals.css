@@ -26,3 +26,17 @@ a {
 form {
   display: grid;
 }
+
+.ass {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+}
+span {
+  font-size: 0.8rem;
+  color: blueviolet;
+  display: none;
+}
+input:invalid ~ span {
+  display: block;
+}

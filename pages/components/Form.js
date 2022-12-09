@@ -1,82 +1,109 @@
 import { useState } from "react";
-import Participants from "./Participants";
+import Participant from "./Participants";
 
 const Form = () => {
-  const [counter, setCounter] = useState(0);
-  const [disabled, setDisabled] = useState(false);
-
-  let number = 10;
-  const CheakoutData = [
+  const [next, setNext] = useState(false);
+  const [values, setValues] = useState({
+    id: "",
+    name: "",
+    email: "",
+    city: "",
+    postcode: "",
+    addresse: "",
+  });
+  const inputs = [
     {
-      fullname: "",
-      age: "",
+      id: "1",
+      name: "fullname",
+      type: "text",
+      placeholder: "TYPE YOUR NAME",
+      label: "Full name",
+    },
+    {
+      id: "2",
+      name: "email",
+      type: "email",
+      placeholder: "example@example.com",
+      label: "Email Address",
+    },
+    {
+      id: "3",
+      name: "city",
+      type: "text",
+      placeholder: "",
+      label: "City",
+    },
+    {
+      id: "4",
+      name: "postcode",
+      type: "number",
+      placeholder: "FX 2200",
+      label: "Post Code",
+    },
+    {
+      id: "5",
+      name: "address",
+      type: "text",
+      placeholder: "YOUR FULL ADDRESS",
+      label: "ADDRESS",
     },
   ];
-  const [formFields, setFormFields] = useState(CheakoutData);
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setValues((prev) => {
+  //     return { ...prev, [name]: value };
+  //   });
 
-  if (formFields.length === 1) {
-    setDisabled.disabled === true;
-  }
-  const handleFormChange = (e, index) => {
-    let data = [...formFields];
-    data[index][e.target.name] = e.target.value;
-    setFormFields(data);
-  };
-  const addFields = () => {
-    let object = {
-      fullname: "",
-      age: "",
-    };
-    setFormFields([...formFields, object]);
-    increase();
-  };
-  // const removeField = (index) => {
-  //   let data = [...formFields];
-  //   data.splice(index, 1);
-  //   setFormFields(data);
+  //   console.log(e.target);
   // };
-  const submit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("grab da data", formFields);
+
+    console.log(values);
   };
-  const increase = () => {
-    setCounter((counter) => counter + 1);
+
+  const onChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+    console.log(values);
   };
+
   return (
     <>
-      {formFields.map((form, index) => {
-        return (
-          <div key={index}>
-            <form onSubmit={submit}>
-              <label>Participant {counter}</label>
-              <input name="fullname" placeholder="Participant Full Name" onChange={(e) => handleFormChange(e, index)} value={form.name} />
-              <input name="age" placeholder="Participant age" onChange={(e) => handleFormChange(e, index)} value={form.age} />
-              {/* <button onClick={() => removeField(index)}>delete participan</button> */}
-            </form>
-          </div>
-        );
-      })}
-      {formFields.length < number && <button onClick={addFields}>ADD PARTICIPANT</button>}
+      {next ? (
+        <Participant />
+      ) : (
+        // <form onSubmit={handleSubmit}>
+        //   <label>
+        //     Name And Surname<input type="text" name="name" onChange={handleChange}></input>
+        //   </label>
+        //   <label>
+        //     Email Adresse<input type="text" name="email" onChange={handleChange}></input>
+        //   </label>
+        //   <label>
+        //     City<input type="text" name="city" onChange={handleChange}></input>
+        //   </label>
+        //   <label>
+        //     Post Code<input type="number" name="postcode" onChange={handleChange}></input>
+        //   </label>
+        //   <label>
+        //     Addresse<input type="text" name="addresse" onChange={handleChange}></input>
+        //   </label>
+        //   <button type="submit">submit</button>
+        //   <button onClick={() => setNext(true)}>next</button>
+        // </form>
+        <>
+          <form onSubmit={handleSubmit}>
+            {inputs.map((input) => (
+              <>
+                <label key={input.id}>{input.label}</label>
+                <input key={input.name} {...input} value={values[input.name] || ""} onChange={onChange} required></input>
+              </>
+            ))}
 
-      {formFields.length < number && (
-        <button disabled={true} onClick={submit}>
-          this is cool{" "}
-        </button>
+            <button disabled={next}>GO TO PAYMENT</button>
+          </form>
+        </>
       )}
-
-      {formFields.length === number && (
-        <button disabled={false} onClick={submit}>
-          this is cool{" "}
-        </button>
-      )}
-
-      {/* {formFields.length === number && (
-        <button disabled={disabled} onClick={submit}>
-          GO TO CHECKOUT
-        </button>
-      )} */}
-      {/* <button disabled={disabled}>Click to Disable</button> */}
-      <Participants />
     </>
   );
 };
