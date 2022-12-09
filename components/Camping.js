@@ -28,10 +28,11 @@ function Camping(props) {
           <div className="change-number">
             <button
               onClick={() => {
-                if (copy > 0) {
+                if (copy >= 0) {
                   setCopy(copy + 1);
                   setRegular(regular - 1);
                 }
+                console.log(copy);
               }}
             >
               -
@@ -42,6 +43,8 @@ function Camping(props) {
                 setCopy(copy - 1);
                 if (copy > 0) {
                   setRegular(regular + 1);
+                } else {
+                  setCopy(copy + 1);
                 }
               }}
             >
@@ -115,6 +118,8 @@ function Camping(props) {
                     if (two > 0) {
                       setCopy(copy + 2);
                       setTwo(two - 1);
+                    } else {
+                      return;
                     }
                     console.log(copy);
                   }}
@@ -128,6 +133,8 @@ function Camping(props) {
                     if (copy > 1) {
                       setTwo(two + 1);
                       console.log(copy);
+                    } else {
+                      setCopy(copy + 2);
                     }
                   }}
                 >
@@ -143,6 +150,8 @@ function Camping(props) {
                     if (three > 0) {
                       setCopy(copy + 3);
                       setThree(three - 1);
+                    } else {
+                      return;
                     }
                   }}
                 >
@@ -154,6 +163,8 @@ function Camping(props) {
                     setCopy(copy - 3);
                     if (copy > 2) {
                       setThree(three + 1);
+                    } else if (copy === 0) {
+                      setCopy(copy + 3);
                     }
                   }}
                 >
@@ -170,6 +181,8 @@ function Camping(props) {
               onClick={() => {
                 if (green > 0) {
                   setGreen(green - 1);
+                } else {
+                  return;
                 }
               }}
             >
@@ -180,6 +193,8 @@ function Camping(props) {
               onClick={() => {
                 if (green < allTickets) {
                   setGreen(green + 1);
+                } else {
+                  return;
                 }
               }}
             >

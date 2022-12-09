@@ -4,8 +4,8 @@ function Steps(props) {
     <>
       <ul>
         {!props.step1 && <li>step 1</li>}
-        {props.step1 && !props.step2 && <li>step 2</li>}
-        {props.step2 && !props.step3 && <li>step 3</li>}
+        {props.step1 && <li>step 2</li>}
+        {props.step2 && <li>step 3</li>}
       </ul>
     </>
   );
