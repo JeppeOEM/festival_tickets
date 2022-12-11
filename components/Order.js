@@ -1,18 +1,28 @@
 function Order(props) {
-  let orders = Object.entries(props);
-  // console.log(orders);
+  // let orders = Object.entries(props);
+  console.log({ ...props });
   // console.log(orders[0][0]);
   return (
     <>
       <h2>Your order</h2>
       <ul>
-        {orders.map((entry) => {
+        {/* {orders.map((entry) => {
           if (entry[1] > 0) {
             if (entry[0] === "regTickets") {
-              return <li key={entry[0]}>Regular tickets: {entry[1]}</li>;
+              return (
+                <li key={entry[0]}>
+                  <span>Regular tickets: {entry[1]}</span>
+                  <span>{799 * entry[1]},- DKK</span>
+                </li>
+              );
             }
             if (entry[0] === "vipTickets") {
-              return <li key={entry[0]}>V.I.P. tickets: {entry[1]}</li>;
+              return (
+                <li key={entry[0]}>
+                  <span>V.I.P. tickets: {entry[1]}</span>
+                  <span>{1299 * entry[1]},- DKK</span>
+                </li>
+              );
             }
             if (entry[0] === "regCamping") {
               return <li key={entry[0]}>Regular camping spot: {entry[1]}</li>;
@@ -29,7 +39,7 @@ function Order(props) {
               return <li key={entry[0]}>Green camping: {entry[1]}</li>;
             }
           }
-        })}
+        })} */}
       </ul>
     </>
   );

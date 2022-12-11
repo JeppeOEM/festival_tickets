@@ -9,8 +9,14 @@ function Tickets(props) {
   const [tickets, setTickets] = useState(false);
   const [camping, setCamping] = useState(false);
   const [area, setArea] = useState(false);
+  // number and type of tickets
   const [regular, setRegular] = useState(0);
   const [vip, setVip] = useState(0);
+  // number and type of camping spots
+  const [basic, setBasic] = useState(0);
+  const [two, setTwo] = useState(0);
+  const [three, setThree] = useState(0);
+  const [green, setGreen] = useState(0);
   const [spots, setSpots] = useState(0);
 
   function completeCamping(reg, two, three) {
@@ -23,73 +29,76 @@ function Tickets(props) {
     setArea(true);
   }
 
+  // ticket options
+  let ticketOptions = [
+    {
+      name: "regular",
+      state: regular,
+      price: 799,
+      max: 10,
+    },
+    {
+      name: "v.i.p.",
+      state: vip,
+      price: 1299,
+      max: 5,
+    },
+  ];
+
+  let campingOptions = [
+    { name: "basic camping spot", iterator: 1, state: basic, stateHandler: setBasic(), price: 200, description: "bla bla bla" },
+    { name: "pre-setup 2-people tent", iterator: 2, state: two, stateHandler: setTwo(), price: 299, description: "bla bla bla" },
+    { name: "pre-setup 3-people tent", iterator: 3, state: three, stateHandler: setThree(), price: 399, description: "bla bla bla" },
+    { name: "green camping", state: green, iterator: 1, stateHandler: setGreen(), price: 249, description: "bla bla bla" },
+  ];
+
   return (
     <>
-      <BookingLayout step1={tickets} step2={camping} step3={area} regTickets={regular} vipTickets={vip}>
+      <BookingLayout step1={tickets} step2={camping} step3={area} tickets={ticketOptions}>
         {!tickets && (
           <>
             <h2>Choose your tickets</h2>
-            <div className="regular">
-              <div className="tickets-text">
-                <h3>Regular</h3>
-                <span>icon</span>
-                <h5>max 10 tickets per order</h5>
-              </div>
-              <div className="change-number">
-                <button
-                  onClick={() => {
-                    if (regular > 0) {
-                      setRegular(regular - 1);
-                    }
-                  }}
-                >
-                  -
-                </button>
-                <span>{regular}</span>
-                <button
-                  onClick={() => {
-                    if (regular < 10) {
-                      setRegular(regular + 1);
-                    }
-                  }}
-                >
-                  +
-                </button>
-              </div>
-            </div>
-            <div className="vip">
-              <div className="tickets-text">
-                <h3>V.I.P.</h3>
-                <span>icon</span>
-                <h5>max 5 tickets per order</h5>
-              </div>
-              <div className="change-number">
-                <button
-                  onClick={() => {
-                    if (vip > 0) {
-                      setVip(vip - 1);
-                    }
-                  }}
-                >
-                  -
-                </button>
-                <span>{vip}</span>
-                <button
-                  onClick={() => {
-                    if (vip < 5) {
-                      setVip(vip + 1);
-                    }
-                  }}
-                >
-                  +
-                </button>
-              </div>
-              <button onClick={() => setTickets(true)}>continue</button>
-            </div>
+            {ticketOptions.map((option) => {
+              return (
+                <>
+                  <div className={option.name}>
+                    <div className="tickets-text">
+                      <h3>{option.name}</h3>
+                      <span>icon</span>
+                      <p>{option.price}</p>
+                      <h5>max {option.max} tickets per order</h5>
+                    </div>
+                    <div className="change-number">
+                      <button
+                        onClick={() => {
+                          if (option.state > 0) {
+                            setRegular(option.state - 1);
+                          }
+                        }}
+                      >
+                        -
+                      </button>
+                      <span>{option.state}</span>
+                      <button
+                        onClick={() => {
+                          if (option.state < 10) {
+                            setRegular(option.state + 1);
+                          }
+                        }}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </>
+              );
+            })}
+
+            <button onClick={() => setTickets(true)}>continue</button>
           </>
         )}
 
-        {tickets && !camping && <Camping regTickets={regular} vipTickets={vip} status={camping} statusHandler={completeCamping} />}
+        {tickets && !camping && <Camping regTickets={regular} vipTickets={vip} options={campingOptions} status={camping} statusHandler={completeCamping} />}
         {camping && !area && <Areas status={area} statusHandler={completeArea} areas={props.areas} spots={spots} />}
 
         {/* <Link href={{ pathname: "/camping", query: { regTickets: regular, vipTickets: vip } }}>
