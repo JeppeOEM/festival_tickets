@@ -13,7 +13,9 @@ function Tickets(props) {
   const [vip, setVip] = useState(0);
   const [spots, setSpots] = useState(0);
 
-  function completeCamping() {
+  function completeCamping(reg, two, three) {
+    console.log("spots:", reg + two + three);
+    setSpots(reg + two + three);
     setCamping(true);
   }
 
@@ -88,7 +90,7 @@ function Tickets(props) {
         )}
 
         {tickets && !camping && <Camping regTickets={regular} vipTickets={vip} status={camping} statusHandler={completeCamping} />}
-        {camping && !area && <Areas status={area} statusHandler={completeArea} areas={props.areas} />}
+        {camping && !area && <Areas status={area} statusHandler={completeArea} areas={props.areas} spots={spots} />}
 
         {/* <Link href={{ pathname: "/camping", query: { regTickets: regular, vipTickets: vip } }}>
           <button onClick={() => setTickets(true)}>continue</button>

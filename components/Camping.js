@@ -52,62 +52,6 @@ function Camping(props) {
             </button>
           </div>
         </div>
-        {/* {(allTickets % 2 === 0 || allTickets % 2 === 1) && (
-          <div className="camping-option">
-            <h3>Pre-setup tent for 2 people</h3>
-            <div className="change-number">
-              <button
-                onClick={() => {
-                  setCopy(copy + 2);
-                  if (two > 0) {
-                    setTwo(two - 1);
-                  }
-                }}
-              >
-                -
-              </button>
-              <span>{two}</span>
-              <button
-                onClick={() => {
-                  setCopy(copy - 2);
-                  if (copy % 2 === 0) {
-                    setTwo(two + 1);
-                  }
-                }}
-              >
-                +
-              </button>
-            </div>
-          </div>
-        )} */}
-        {/* {(allTickets % 3 === 0 || allTickets % 3 === 1) && (
-          <div className="camping-option">
-            <h3>Pre-setup tent for 3 people</h3>
-            <div className="change-number">
-              <button
-                onClick={() => {
-                  setCopy(copy + 3);
-                  if (three > 0) {
-                    setThree(three - 1);
-                  }
-                }}
-              >
-                -
-              </button>
-              <span>{three}</span>
-              <button
-                onClick={() => {
-                  setCopy(copy - 3);
-                  if (copy % 3 === 0) {
-                    setThree(three + 1);
-                  }
-                }}
-              >
-                +
-              </button>
-            </div>
-          </div>
-        )} */}
         {(allTickets % 2 === 0 || allTickets % 3 === 0 || allTickets % 5 === 0 || (allTickets % 5) % 2 === 0 || (allTickets % 5) % 3 === 0) && (
           <>
             <div className="camping-option">
@@ -202,7 +146,7 @@ function Camping(props) {
             </button>
           </div>
         </div>
-        <button onClick={props.statusHandler}>continue</button>
+        <button onClick={() => props.statusHandler(regular, two, three)}>continue</button>
       </BookingLayout>
     </>
   );

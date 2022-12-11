@@ -4,6 +4,19 @@ function Areas(props) {
 
   function sendPutRequest(event) {
     console.log(event.target.id);
+
+    fetch("http://localhost:8080/reserve-spot", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: {
+        area: event.target.id,
+        amount: props.spots,
+      },
+    })
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err));
   }
 
   return (
