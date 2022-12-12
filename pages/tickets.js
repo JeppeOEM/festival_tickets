@@ -32,14 +32,16 @@ function Tickets(props) {
   // ticket options
   let ticketOptions = [
     {
-      name: "regular",
+      name: "regular ticket",
       state: regular,
+      stateHandler: setRegular,
       price: 799,
       max: 10,
     },
     {
-      name: "v.i.p.",
+      name: "v.i.p. ticket",
       state: vip,
+      stateHandler: setVip,
       price: 1299,
       max: 5,
     },
@@ -54,7 +56,7 @@ function Tickets(props) {
 
   return (
     <>
-      <BookingLayout step1={tickets} step2={camping} step3={area} tickets={ticketOptions}>
+      <BookingLayout step1={tickets} step2={camping} step3={area} tickets={ticketOptions} camping={campingOptions}>
         {!tickets && (
           <>
             <h2>Choose your tickets</h2>
@@ -65,14 +67,14 @@ function Tickets(props) {
                     <div className="tickets-text">
                       <h3>{option.name}</h3>
                       <span>icon</span>
-                      <p>{option.price}</p>
+                      <p>{option.price},- DKK</p>
                       <h5>max {option.max} tickets per order</h5>
                     </div>
                     <div className="change-number">
                       <button
                         onClick={() => {
                           if (option.state > 0) {
-                            setRegular(option.state - 1);
+                            option.stateHandler(option.state - 1);
                           }
                         }}
                       >
@@ -82,7 +84,7 @@ function Tickets(props) {
                       <button
                         onClick={() => {
                           if (option.state < 10) {
-                            setRegular(option.state + 1);
+                            option.stateHandler(option.state + 1);
                           }
                         }}
                       >

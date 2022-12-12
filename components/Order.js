@@ -1,11 +1,25 @@
 function Order(props) {
-  // let orders = Object.entries(props);
-  console.log({ ...props });
-  // console.log(orders[0][0]);
+  let order = props.order[0].concat(props.order[1]);
+
   return (
     <>
       <h2>Your order</h2>
       <ul>
+        {order.map((entry) => {
+          if (entry === Number) {
+            return;
+          }
+          if (entry.state !== 0) {
+            return (
+              <li key={entry.name}>
+                <p>{entry.name}</p>
+                <p>{entry.state}</p>
+                <p className="item-price">{entry.price * entry.state}</p>
+              </li>
+            );
+          }
+        })}
+
         {/* {orders.map((entry) => {
           if (entry[1] > 0) {
             if (entry[0] === "regTickets") {

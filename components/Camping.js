@@ -27,7 +27,7 @@ function Camping(props) {
             <div className="change-number">
               <button
                 onClick={() => {
-                  if (copy >= 0) {
+                  if (0 < copy && copy < allTickets) {
                     setCopy(copy + option.iterator);
                     option.stateHandler(option.state - 1);
                   } else {
@@ -46,10 +46,12 @@ function Camping(props) {
                     if (copy > 0) {
                       option.stateHandler(option.state + 1);
                     } else {
+                      alert("You do not have enough tickets for that option. Try to pick different camping options.");
                       return;
                     }
                     // console.log(option.stateHandler);
                   } else {
+                    alert("You do not have enough tickets for that option. Try to pick different camping options.");
                     return;
                   }
                 }}
