@@ -46,10 +46,10 @@ function Tickets(props) {
   ];
 
   let campingOptions = [
-    { name: "basic camping spot", iterator: 1, state: basic, stateHandler: setBasic(), price: 200, description: "bla bla bla" },
-    { name: "pre-setup 2-people tent", iterator: 2, state: two, stateHandler: setTwo(), price: 299, description: "bla bla bla" },
-    { name: "pre-setup 3-people tent", iterator: 3, state: three, stateHandler: setThree(), price: 399, description: "bla bla bla" },
-    { name: "green camping", state: green, iterator: 1, stateHandler: setGreen(), price: 249, description: "bla bla bla" },
+    { name: "basic camping spot", iterator: 1, state: basic, stateHandler: setBasic, price: 200, description: "bla bla bla" },
+    { name: "pre-setup 2-people tent", iterator: 2, state: two, stateHandler: setTwo, price: 299, description: "bla bla bla" },
+    { name: "pre-setup 3-people tent", iterator: 3, state: three, stateHandler: setThree, price: 399, description: "bla bla bla" },
+    { name: "green camping", state: green, iterator: 1, stateHandler: setGreen, price: 249, description: "bla bla bla" },
   ];
 
   return (

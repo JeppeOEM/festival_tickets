@@ -19,17 +19,19 @@ function Camping(props) {
     <>
       {/* <BookingLayout regCamping={regular} twoCamping={two} threeCamping={three} greenCamping={green}> */}
       <h2>Choose camping options</h2>
+      <p>You have {copy} people left</p>
       {props.options.map((option) => {
         return (
           <div className="camping-option" key={option.name}>
             <h3>{option.name}</h3>
             <div className="change-number">
               <button
-              {}
                 onClick={() => {
                   if (copy >= 0) {
                     setCopy(copy + option.iterator);
-                    setRegular(option.state - 1);
+                    option.stateHandler(option.state - 1);
+                  } else {
+                    return;
                   }
                   console.log(copy);
                 }}
@@ -39,11 +41,16 @@ function Camping(props) {
               <span>{option.state}</span>
               <button
                 onClick={() => {
-                  setCopy(copy - option.iterator);
                   if (copy > 0) {
-                    setRegular(option.state + 1);
+                    setCopy(copy - option.iterator);
+                    if (copy > 0) {
+                      option.stateHandler(option.state + 1);
+                    } else {
+                      return;
+                    }
+                    // console.log(option.stateHandler);
                   } else {
-                    setCopy(copy + option.iterator);
+                    return;
                   }
                 }}
               >
@@ -54,7 +61,7 @@ function Camping(props) {
         );
       })}
 
-      <div className="camping-option">
+      {/* <div className="camping-option">
         <h3>Regular camping spot</h3>
         <div className="change-number">
           <button
@@ -176,7 +183,7 @@ function Camping(props) {
             +
           </button>
         </div>
-      </div>
+      </div> */}
       <button onClick={() => props.statusHandler(regular, two, three)}>continue</button>
       {/* </BookingLayout> */}
     </>
