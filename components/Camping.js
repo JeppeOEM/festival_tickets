@@ -181,7 +181,7 @@ function Camping(props) {
           </button>
         </div>
       </div> */}
-      <button onClick={() => props.statusHandler(regular, two, three)}>continue</button>
+      <button onClick={props.statusHandler}>continue</button>
       {/* </BookingLayout> */}
     </>
   );

@@ -3,19 +3,23 @@ function Areas(props) {
   console.log("this one", props.areas);
 
   function sendPutRequest(event) {
-    console.log(event.target.id);
-
+    const data = {
+      area: event.target.id,
+      amount: props.spots,
+    };
     fetch("http://localhost:8080/reserve-spot", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: {
-        area: event.target.id,
-        amount: props.spots,
-      },
+      // server won't take an object, it needs a string
+      body: JSON.stringify(data),
     })
-      .then((response) => console.log(response))
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((json) => console.log(json))
       .catch((err) => console.error(err));
   }
 
