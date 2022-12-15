@@ -1,0 +1,14 @@
+.b {
+  color: red;
+  text-align: center;
+}
+.container {
+  background-color: blue;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  div {
+    background-color: green;
+  }
+}
