@@ -1,5 +1,5 @@
-import Order from "../components/Order";
-import Steps from "../components/Steps";
+import Order from "../pages/components/Order";
+import Steps from "../pages/components/Steps";
 
 function BookingLayout(props) {
   return (

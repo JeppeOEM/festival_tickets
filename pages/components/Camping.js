@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BookingLayout from "../layout/bookingLayout";
+import BookingLayout from "../../layout/bookingLayout";
 
 // export async function getServerSideProps(context) {
 //   console.log(context.query);

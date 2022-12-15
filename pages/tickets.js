@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import BookingLayout from "../layout/bookingLayout";
-import Camping from "../components/Camping";
-import Areas from "../components/Areas";
+import Camping from "./components/Camping";
+import Areas from "./components/Areas";
 
 function Tickets(props) {
   // process status
