@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import Form from "./Form";
 
-function Participants() {
+function Participants(props) {
   const [counter, setCounter] = useState(1);
   // const [disabled, setDisabled] = useState(false);
   const [next, setNext] = useState(false);
+
+  console.log(props.orderResponse);
 
   let number = 5;
   const CheakoutData = [{}];

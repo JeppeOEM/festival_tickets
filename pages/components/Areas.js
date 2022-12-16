@@ -1,7 +1,12 @@
+import { useState } from "react";
+import Participants from "./checkout/Participants";
+
 function Areas(props) {
+  // state to save the response from the server
+  const [idReceived, setIdReceived] = useState({});
+
   // console.log(props.regTickets);
   console.log("this one", props.areas);
-
   function sendPutRequest(event) {
     const data = {
       area: event.target.id,
@@ -16,28 +21,39 @@ function Areas(props) {
       body: JSON.stringify(data),
     })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         return response.json();
       })
-      .then((json) => console.log(json))
+      .then((json) => getID(json))
       .catch((err) => console.error(err));
+  }
+
+  function getID(object) {
+    setIdReceived(object);
   }
 
   return (
     <>
-      <h2>Areas</h2>
-      {props.areas.map((area) => {
-        return (
-          <div className="area" key={area.area}>
-            <h3>{area.area}</h3>
-            <p>description description description description description description description description description description description description description </p>
-            <h5>Available spots: {area.available}</h5>
-            <button id={area.area} onClick={sendPutRequest}>
-              choose
-            </button>
-          </div>
-        );
-      })}
+      {!props.status && (
+        <>
+          <h2>Areas</h2>
+          {props.areas.map((area) => {
+            return (
+              <div className="area" key={area.area}>
+                <h3>{area.area}</h3>
+                <p>description description description description description description description description description description description description description </p>
+                <h5>Available spots: {area.available}</h5>
+                <button id={area.area} onClick={sendPutRequest}>
+                  choose
+                </button>
+              </div>
+            );
+          })}
+        </>
+      )}
+
+      <button onClick={props.statusHandler}>Continue</button>
+      {props.status && <Participants orderResponse={idReceived} />}
     </>
   );
 }

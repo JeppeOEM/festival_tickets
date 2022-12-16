@@ -17,7 +17,6 @@ function Camping(props) {
 
   return (
     <>
-      {/* <BookingLayout regCamping={regular} twoCamping={two} threeCamping={three} greenCamping={green}> */}
       <h2>Choose camping options</h2>
       <p>You have {copy} people left</p>
       {props.options.map((option) => {
@@ -182,7 +181,6 @@ function Camping(props) {
         </div>
       </div> */}
       <button onClick={props.statusHandler}>continue</button>
-      {/* </BookingLayout> */}
     </>
   );
 }

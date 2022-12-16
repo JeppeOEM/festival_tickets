@@ -3,6 +3,8 @@ import Link from "next/link";
 import BookingLayout from "../layout/bookingLayout";
 import Camping from "./components/Camping";
 import Areas from "./components/Areas";
+// import { getID } from "./Areas";
+import Participants from "./components/checkout/Participants";
 
 function Tickets(props) {
   // process status
@@ -19,6 +21,8 @@ function Tickets(props) {
   const [green, setGreen] = useState(0);
   const [spots, setSpots] = useState(0);
 
+  // functions to switch between components
+
   function completeCamping() {
     // console.log("spots:", a + b + c);
     setSpots(basic + two + three);
@@ -29,7 +33,7 @@ function Tickets(props) {
     setArea(true);
   }
 
-  // ticket options
+  // objects with data for tickets and camping options
   let ticketOptions = [
     {
       name: "regular ticket",
@@ -48,10 +52,10 @@ function Tickets(props) {
   ];
 
   let campingOptions = [
-    { name: "basic camping spot", spot: 1, state: basic, stateHandler: setBasic, price: 200, description: "bla bla bla" },
-    { name: "pre-setup 2-people tent", spot: 2, state: two, stateHandler: setTwo, price: 299, description: "bla bla bla" },
-    { name: "pre-setup 3-people tent", spot: 3, state: three, stateHandler: setThree, price: 399, description: "bla bla bla" },
-    { name: "green camping", state: green, spot: 1, stateHandler: setGreen, price: 249, description: "bla bla bla" },
+    { name: "basic camping pass", spot: 1, state: basic, stateHandler: setBasic, price: 100, description: "Come with your own tent and set your own rules! The basic camping pass allows you to access the camping area with your equipment." },
+    { name: "pre-setup 2-people tent", spot: 2, state: two, stateHandler: setTwo, price: 299, description: "Avoid the fight for camping space and let us do the job for you! Our crew will put up the tent before your arrival." },
+    { name: "pre-setup 3-people tent", spot: 3, state: three, stateHandler: setThree, price: 399, description: "Avoid the fight for camping space and let us do the job for you! Our crew will put up the tent before your arrival." },
+    { name: "green camping", state: green, spot: 1, stateHandler: setGreen, price: 249, description: "Get a package of sustainable camping equipment!" },
   ];
 
   return (
@@ -83,7 +87,7 @@ function Tickets(props) {
                       <span>{option.state}</span>
                       <button
                         onClick={() => {
-                          if (option.state < 10) {
+                          if (option.state < option.max) {
                             option.stateHandler(option.state + 1);
                           }
                         }}

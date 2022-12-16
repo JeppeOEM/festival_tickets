@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { Component } from "react";
-import Participants from "./components/cheackout/Participants";
+import Participants from "./components/checkout/Participants";
 import StyleSheet from "../styles/component/landing.module.scss";
 
 // export default function Home() {
