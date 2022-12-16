@@ -1,6 +1,10 @@
+import { useEffect, useState } from "react";
+import Participant from "../components/checkout/Participants";
+import Form from "./checkout/Form";
 function Areas(props) {
   // console.log(props.regTickets);
-  console.log("this one", props.areas);
+  // console.log("this get", props.areas);
+  const [TheId, getId] = useState(0);
 
   function sendPutRequest(event) {
     const data = {
@@ -19,12 +23,21 @@ function Areas(props) {
         console.log(response);
         return response.json();
       })
-      .then((json) => console.log(json))
+      .then((json) => {
+        let data = json;
+        getId(data.id);
+        console.log(data);
+      })
       .catch((err) => console.error(err));
   }
 
+  // function getId(json) {
+  //   console.log("add", json.id);
+  //   return <Participant id={json} />;
+  // }
   return (
     <>
+      <Form id={TheId} />
       <h2>Areas</h2>
       {props.areas.map((area) => {
         return (

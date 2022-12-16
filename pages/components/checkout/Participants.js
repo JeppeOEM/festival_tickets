@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
+import Tickets from "../../tickets";
+import Areas from "../Areas";
 import Form from "./Form";
+// import { getId } from "..Areas/";
 
-function Participants() {
+function Participants(props) {
+  let number = props.ticketsNr;
+  console.log(number);
   const [counter, setCounter] = useState(1);
   // const [disabled, setDisabled] = useState(false);
   const [next, setNext] = useState(false);
 
-  let number = 5;
+  // let number = 5;
   const CheakoutData = [{}];
   const [formFields, setFormFields] = useState(CheakoutData);
 
@@ -47,10 +52,10 @@ function Participants() {
   return (
     <>
       {next ? (
-        <Form name={formFields} />
+        <Form name={formFields} part={formFields} />
       ) : (
         <>
-          <form>
+          <form onSubmit={submit}>
             {formFields.map((form, index) => {
               return (
                 <div key={index}>
