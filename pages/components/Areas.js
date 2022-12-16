@@ -3,7 +3,6 @@ import Participants from "./checkout/Participants";
 
 function Areas(props) {
   // state to save the response from the server
-  const [idReceived, setIdReceived] = useState({});
 
   // console.log(props.regTickets);
   console.log("this one", props.areas);
@@ -29,31 +28,26 @@ function Areas(props) {
   }
 
   function getID(object) {
-    setIdReceived(object);
+    props.idHandler(object);
   }
 
   return (
     <>
-      {!props.status && (
-        <>
-          <h2>Areas</h2>
-          {props.areas.map((area) => {
-            return (
-              <div className="area" key={area.area}>
-                <h3>{area.area}</h3>
-                <p>description description description description description description description description description description description description description </p>
-                <h5>Available spots: {area.available}</h5>
-                <button id={area.area} onClick={sendPutRequest}>
-                  choose
-                </button>
-              </div>
-            );
-          })}
-        </>
-      )}
+      <h2>Areas</h2>
+      {props.areas.map((area) => {
+        return (
+          <div className="area" key={area.area}>
+            <h3>{area.area}</h3>
+            <p>description description description description description description description description description description description description description </p>
+            <h5>Available spots: {area.available}</h5>
+            <button id={area.area} onClick={sendPutRequest}>
+              choose
+            </button>
+          </div>
+        );
+      })}
 
       <button onClick={props.statusHandler}>Continue</button>
-      {props.status && <Participants orderResponse={idReceived} />}
     </>
   );
 }
