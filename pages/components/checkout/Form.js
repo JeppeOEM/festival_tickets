@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import Participant from "./Participants";
+import Cheackout from "./Checkout";
 import { getData } from "/data/formdata";
 
 function Form(props) {
@@ -81,7 +81,7 @@ function Form(props) {
   return (
     <>
       {next ? (
-        <Participant />
+        <Cheackout reservationID={props.reservationID} />
       ) : (
         <>
           <form onSubmit={submitComment} ref={theForm}>
@@ -101,7 +101,7 @@ function Form(props) {
               Addresse<input type="text" name="fulladdress" onChange={handleChange}></input>
             </label>
             <button type="submit">submit</button>
-            <button onClick={() => setNext(true)}>next</button>
+            <button onClick={() => setNext(true)}>go to payment</button>
           </form>
           {/* <form onSubmit={submitComment} ref={theForm}>
             {inputs.map((input) => (

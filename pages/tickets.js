@@ -3,8 +3,9 @@ import Link from "next/link";
 import BookingLayout from "../layout/bookingLayout";
 import Camping from "./components/Camping";
 import Areas from "./components/Areas";
-// import { getID } from "./Areas";
 import Participants from "./components/checkout/Participants";
+// stylesheet
+import StyleSheet from "../styles/component/tickets.module.scss";
 
 function Tickets(props) {
   // process status
@@ -48,6 +49,7 @@ function Tickets(props) {
       stateHandler: setRegular,
       price: 799,
       max: 10,
+      description: "Basic festival pass allowing you to access whole festival area.",
     },
     {
       name: "v.i.p. ticket",
@@ -55,6 +57,7 @@ function Tickets(props) {
       stateHandler: setVip,
       price: 1299,
       max: 5,
+      description: "This pass allows you to enjoy concerts in a restricted are just below the stage and get your desired meals, drinks and merch using fast track.",
     },
   ];
 
@@ -67,40 +70,42 @@ function Tickets(props) {
 
   return (
     <>
-      <BookingLayout step1={tickets} step2={camping} step3={area} tickets={ticketOptions} camping={campingOptions}>
+      <BookingLayout step1={tickets} step2={camping} step3={area} tickets={ticketOptions} camping={campingOptions} bookingTime={idReceived.timeout}>
         {!tickets && (
           <>
             <h2>Choose your tickets</h2>
             {ticketOptions.map((option) => {
               return (
                 <>
-                  <div className={option.name}>
-                    <div className="tickets-text">
+                  <div className={StyleSheet.card}>
+                    <div className={StyleSheet.cardText}>
                       <h3>{option.name}</h3>
-                      <span>icon</span>
-                      <p>{option.price},- DKK</p>
+                      <p>{option.description}</p>
                       <h5>max {option.max} tickets per order</h5>
                     </div>
-                    <div className="change-number">
-                      <button
-                        onClick={() => {
-                          if (option.state > 0) {
-                            option.stateHandler(option.state - 1);
-                          }
-                        }}
-                      >
-                        -
-                      </button>
-                      <span>{option.state}</span>
-                      <button
-                        onClick={() => {
-                          if (option.state < option.max) {
-                            option.stateHandler(option.state + 1);
-                          }
-                        }}
-                      >
-                        +
-                      </button>
+                    <div className="actions">
+                      <p>{option.price},- DKK</p>
+                      <div className={StyleSheet.changeNumber}>
+                        <button
+                          onClick={() => {
+                            if (option.state > 0) {
+                              option.stateHandler(option.state - 1);
+                            }
+                          }}
+                        >
+                          -
+                        </button>
+                        <span>{option.state}</span>
+                        <button
+                          onClick={() => {
+                            if (option.state < option.max) {
+                              option.stateHandler(option.state + 1);
+                            }
+                          }}
+                        >
+                          +
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </>
@@ -113,7 +118,7 @@ function Tickets(props) {
 
         {tickets && !camping && <Camping regTickets={regular} vipTickets={vip} options={campingOptions} status={camping} statusHandler={completeCamping} />}
         {camping && !area && <Areas status={area} statusHandler={completeArea} areas={props.areas} spots={spots} idHandler={getID} />}
-        {area && <Participants orderResponse={idReceived} participants={basic + vip} />}
+        {area && <Participants orderResponse={idReceived.id} participants={regular + vip} />}
 
         {/* <Link href={{ pathname: "/camping", query: { regTickets: regular, vipTickets: vip } }}>
           <button onClick={() => setTickets(true)}>continue</button>

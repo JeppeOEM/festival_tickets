@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
+import Tickets from "../../tickets";
+import Areas from "../Areas";
 import Form from "./Form";
+// import { getId } from "..Areas/";
 
 function Participants(props) {
+  let number = props.participants;
+  console.log(number);
   const [counter, setCounter] = useState(1);
   // const [disabled, setDisabled] = useState(false);
   const [next, setNext] = useState(false);
 
-  console.log(props.orderResponse);
-
-  let number = 5;
+  // let number = 5;
   const CheakoutData = [{}];
   const [formFields, setFormFields] = useState(CheakoutData);
 
@@ -49,10 +52,10 @@ function Participants(props) {
   return (
     <>
       {next ? (
-        <Form name={formFields} />
+        <Form name={formFields} part={formFields} reservationID={props.orderResponse} />
       ) : (
         <>
-          <form>
+          <form onSubmit={submit}>
             {formFields.map((form, index) => {
               return (
                 <div key={index}>
@@ -82,13 +85,11 @@ function Participants(props) {
             )}
             {formFields.length < number ? <button onClick={addFields}>ADD PARTICIPANT</button> : <button disabled={true}>ADD PARTICIPANT</button>}
           </div>
-
-          {/* {formFields.length < number && (
+          {/*{formFields.length < number && (
             <button disabled={true} onClick={submit}>
               this is cool{" "}
             </button>
           )}
-
           {formFields.length === number && (
             <button disabled={false} onClick={() => setNext(true)}>
               Go To Personal Information
@@ -99,5 +100,4 @@ function Participants(props) {
     </>
   );
 }
-
 export default Participants;

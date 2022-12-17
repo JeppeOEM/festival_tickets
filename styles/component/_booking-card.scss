@@ -1,0 +1,12 @@
+.card {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(35vw, 1fr));
+    width: 45vw;
+    justify-content: space-between;
+    .changeNumber {
+        width: 15%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

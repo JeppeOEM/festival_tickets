@@ -1,0 +1,14 @@
+.bLayout {
+    margin: 0 10vw;
+}
+
+.layoutGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(60vw, 1fr));
+    .order {
+        height: 100%;
+        position: sticky;
+        top: 0;
+        background-color: #2d2d2d;
+    }
+}

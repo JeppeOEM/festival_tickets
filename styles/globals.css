@@ -1,3 +1,9 @@
+:root {
+  --background-color: rgb(30, 30, 30);
+  --text-color: rgb(234, 234, 234);
+  --accent-color: #ce1616;
+}
+
 html,
 body {
   padding: 0;
