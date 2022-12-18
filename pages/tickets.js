@@ -22,7 +22,7 @@ function Tickets(props) {
   const [green, setGreen] = useState(0);
   const [spots, setSpots] = useState(0);
   // getting ID from server
-  // const [idReceived, setIdReceived] = useState({});
+  const [idReceived, setIdReceived] = useState({});
 
   // functions to switch between components
 
@@ -122,9 +122,9 @@ function Tickets(props) {
 
         {tickets && !camping && <Camping regTickets={regular} vipTickets={vip} options={campingOptions} status={camping} statusHandler={completeCamping} />}
         {camping && !area && <Areas status={area} statusHandler={completeArea} areas={props.areas} spots={spots} idHandler={getID} />}
-        {area && <Participants  participants={regular + vip} />}
+        {area && <Participants participants={regular + vip} orderResponse={idReceived.id} />}
 
-            {/* orderResponse={idReceived.id} */}
+        {/* orderResponse={idReceived.id} */}
         {/* <Link href={{ pathname: "/camping", query: { regTickets: regular, vipTickets: vip } }}>
           <button onClick={() => setTickets(true)}>continue</button>
         </Link> */}

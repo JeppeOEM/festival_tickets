@@ -8,7 +8,8 @@ function Areas(props) {
 
   // console.log(props.regTickets);
   // console.log("this get", props.areas);
-  const [TheId, getId] = useState(0);
+  // const [TheId, getId] = useState(0);
+
   function sendPutRequest(event) {
     const data = {
       area: event.target.id,
@@ -28,19 +29,18 @@ function Areas(props) {
       })
       .then((json) => {
         let data = json;
-        getId(data.id);
+        getId(data);
         console.log(data);
       })
       .catch((err) => console.error(err));
   }
 
-  // function getId(json) {
-  //   console.log("add", json.id);
-  //   return <Participant id={json} />;
-  // }
+  function getId(json) {
+    props.idHandler(json);
+  }
   return (
     <>
-      <Form id={TheId} />
+      {/* <Form id={TheId} /> */}
       <h2>Areas</h2>
       {props.areas.map((area) => {
         return (
