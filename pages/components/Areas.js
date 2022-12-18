@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Participants from "./checkout/Participants";
+// stylesheet
+import StyleSheet from "../../styles/pages/tickets.module.scss";
 
 function Areas(props) {
   // state to save the response from the server
@@ -36,10 +38,10 @@ function Areas(props) {
       <h2>Areas</h2>
       {props.areas.map((area) => {
         return (
-          <div className="area" key={area.area}>
+          <div className={StyleSheet.card} key={area.area}>
             <h3>{area.area}</h3>
-            <p>description description description description description description description description description description description description description </p>
-            <h5>Available spots: {area.available}</h5>
+            {area.available < 0.15 * area.available ? <h5 className={StyleSheet.fewSpots}>Available spots: {area.available}</h5> : <h5>Available spots: {area.available}</h5>}
+
             <button id={area.area} onClick={sendPutRequest}>
               choose
             </button>

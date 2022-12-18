@@ -82,7 +82,7 @@ function Tickets(props) {
                     <p>{option.description}</p>
                     <h5 className={StyleSheet.limit}>max {option.max} tickets per order</h5>
                   </div>
-                  <div className="actions">
+                  <div className={StyleSheet.actions}>
                     <p className={StyleSheet.price}>{option.price},- DKK</p>
                     <div className={StyleSheet.changeNumber}>
                       <button

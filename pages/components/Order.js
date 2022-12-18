@@ -1,60 +1,34 @@
+import StyleSheet from "../../styles/component/order.module.scss";
+
 function Order(props) {
   let order = props.order[0].concat(props.order[1]);
+  const prices = [];
 
   return (
     <>
       <h2>Your order</h2>
-      <ul>
+      <ul className={StyleSheet.orderList}>
         {order.map((entry) => {
           if (entry === Number) {
             return;
           }
           if (entry.state !== 0) {
+            prices.push(entry.price * entry.state);
             return (
-              <li key={entry.name}>
-                <p>{entry.name}</p>
-                <p>{entry.state}</p>
-                <p className="item-price">{entry.price * entry.state}</p>
+              <li className={StyleSheet.orderItem} key={entry.name}>
+                <span>
+                  {entry.name}: {entry.state}
+                </span>
+                <span className="item-price">{entry.price * entry.state},- DKK</span>
               </li>
             );
           }
         })}
-
-        {/* {orders.map((entry) => {
-          if (entry[1] > 0) {
-            if (entry[0] === "regTickets") {
-              return (
-                <li key={entry[0]}>
-                  <span>Regular tickets: {entry[1]}</span>
-                  <span>{799 * entry[1]},- DKK</span>
-                </li>
-              );
-            }
-            if (entry[0] === "vipTickets") {
-              return (
-                <li key={entry[0]}>
-                  <span>V.I.P. tickets: {entry[1]}</span>
-                  <span>{1299 * entry[1]},- DKK</span>
-                </li>
-              );
-            }
-            if (entry[0] === "regCamping") {
-              return <li key={entry[0]}>Regular camping spot: {entry[1]}</li>;
-            }
-            if (entry[0] === "doubleTent") {
-              console.log("adding 2ppl tent");
-              return <li key={entry[0]}>Pre-setup 2-people tent: {entry[1]}</li>;
-            }
-            if (entry[0] === "trippleTent") {
-              console.log("adding 3ppl tent");
-              return <li key={entry[0]}>Pre-setup 3-people tent: {entry[1]}</li>;
-            }
-            if (entry[0] === "greenCamping") {
-              return <li key={entry[0]}>Green camping: {entry[1]}</li>;
-            }
-          }
-        })} */}
       </ul>
+      <div className={StyleSheet.total}>
+        <p>total:</p>
+        <p>{prices.length === 0 ? "0" : `${prices.reduce((a, b) => a + b)},-DKK`}</p>
+      </div>
     </>
   );
 }

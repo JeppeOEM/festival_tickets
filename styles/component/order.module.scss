@@ -1,0 +1,20 @@
+@import "../modules/variables";
+
+.orderList {
+    padding: 0 0 5vh 0;
+    list-style: none;
+    .orderItem {
+        padding: 3vh 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 1px solid $border-color;
+    }
+}
+
+.total {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

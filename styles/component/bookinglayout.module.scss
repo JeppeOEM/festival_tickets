@@ -7,9 +7,10 @@
 
 .layoutGrid {
     display: grid;
-    grid-template-columns: 55vw 1fr;
-    grid-gap: 7vw;
+    grid-template-columns: 50vw 1fr;
+    grid-gap: 8vw;
     .order {
+        padding: 0 3vw;
         height: 100vh;
         // width: 100%;
         position: sticky;
@@ -21,7 +22,7 @@
 // steps styling
 
 .steps {
-    padding: 5vh 5vw 5vh 0;
+    padding: 5vh 0;
     list-style: none;
     display: flex;
     flex-direction: row;
