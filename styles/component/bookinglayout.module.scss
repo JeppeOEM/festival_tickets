@@ -1,4 +1,6 @@
-.bLayout {
+@import "../modules/variables";
+
+.layout {
     margin: 0 10vw;
 }
 
@@ -10,5 +12,21 @@
         position: sticky;
         top: 0;
         background-color: #2d2d2d;
+    }
+}
+
+// steps styling
+
+.steps {
+    padding: 0 5vw 5vh 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .done {
+        color: $accent-color;
+    }
+    .pending {
+        color: $inactive-color;
     }
 }

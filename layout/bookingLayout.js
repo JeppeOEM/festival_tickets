@@ -4,7 +4,7 @@ import StyleSheet from "../styles/component/bookinglayout.module.scss";
 
 function BookingLayout(props) {
   return (
-    <div className={StyleSheet.bLayout}>
+    <div className={StyleSheet.layout}>
       <section className={StyleSheet.layoutGrid}>
         <div>
           <section className={StyleSheet.info}>
