@@ -3,6 +3,7 @@ import Link from "next/link";
 import BookingLayout from "../layout/bookingLayout";
 import Camping from "./components/Camping";
 import Areas from "./components/Areas";
+import Participants from "./components/checkout/Participants";
 
 function Tickets(props) {
   // process status
@@ -18,7 +19,8 @@ function Tickets(props) {
   const [three, setThree] = useState(0);
   const [green, setGreen] = useState(0);
   const [spots, setSpots] = useState(0);
-
+  let totalTickets = regular + vip;
+  console.log("this", totalTickets);
   function completeCamping() {
     // console.log("spots:", a + b + c);
     setSpots(basic + two + three);
@@ -56,6 +58,7 @@ function Tickets(props) {
 
   return (
     <>
+      <Participants ticketsNr={totalTickets} />
       <BookingLayout step1={tickets} step2={camping} step3={area} tickets={ticketOptions} camping={campingOptions}>
         {!tickets && (
           <>

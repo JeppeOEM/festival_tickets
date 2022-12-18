@@ -5,7 +5,6 @@ function Areas(props) {
   // console.log(props.regTickets);
   // console.log("this get", props.areas);
   const [TheId, getId] = useState(0);
-
   function sendPutRequest(event) {
     const data = {
       area: event.target.id,
