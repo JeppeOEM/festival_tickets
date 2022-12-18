@@ -6,6 +6,7 @@ import Form from "./Form";
 
 function Participants(props) {
   let number = props.participants;
+  // let number = props.ticketsNr;
   console.log(number);
   const [counter, setCounter] = useState(1);
   // const [disabled, setDisabled] = useState(false);
@@ -52,7 +53,7 @@ function Participants(props) {
   return (
     <>
       {next ? (
-        <Form name={formFields} part={formFields} reservationID={props.orderResponse} />
+        <Form name={formFields} part={formFields} />
       ) : (
         <>
           <form onSubmit={submit}>

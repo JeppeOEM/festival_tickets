@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Participants from "./checkout/Participants";
+import Form from "./checkout/Form";
 // stylesheet
 import StyleSheet from "../../styles/pages/tickets.module.scss";
 
@@ -7,7 +7,8 @@ function Areas(props) {
   // state to save the response from the server
 
   // console.log(props.regTickets);
-  console.log("this one", props.areas);
+  // console.log("this get", props.areas);
+  const [TheId, getId] = useState(0);
   function sendPutRequest(event) {
     const data = {
       area: event.target.id,
@@ -25,16 +26,21 @@ function Areas(props) {
         // console.log(response);
         return response.json();
       })
-      .then((json) => getID(json))
+      .then((json) => {
+        let data = json;
+        getId(data.id);
+        console.log(data);
+      })
       .catch((err) => console.error(err));
   }
 
-  function getID(object) {
-    props.idHandler(object);
-  }
-
+  // function getId(json) {
+  //   console.log("add", json.id);
+  //   return <Participant id={json} />;
+  // }
   return (
     <>
+      <Form id={TheId} />
       <h2>Areas</h2>
       {props.areas.map((area) => {
         return (

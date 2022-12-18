@@ -1,22 +1,26 @@
 import { useState, useRef } from "react";
 import Cheackout from "./Checkout";
 import { getData } from "/data/formdata";
+import Areas from "../Areas";
 
 function Form(props) {
+  let grab = props.id;
+  console.log(props.part);
   const theForm = useRef(null);
   const [next, setNext] = useState(false);
   const [values, setValues] = useState({});
-
+  console.log(grab);
   const submitComment = async (e) => {
     e.preventDefault();
     let inputData = theForm.current.elements;
     getData({
+      id: grab,
       fullname: inputData.name.value,
       email: inputData.email.value,
       city: inputData.city.value,
       postcode: inputData.postcode.value,
       fulladdress: inputData.fulladdress.value,
-      tickets: ["asssssad", "fasfs", "audhau"],
+      tickets: props.part,
     });
 
     console.log(theForm.current.elements.name.value);
@@ -77,13 +81,13 @@ function Form(props) {
     setValues({ ...values, [e.target.name]: e.target.value });
     console.log(e.target.value);
   };
-
   return (
     <>
       {next ? (
         <Cheackout reservationID={props.reservationID} />
       ) : (
         <>
+          <p>{grab}</p>
           <form onSubmit={submitComment} ref={theForm}>
             <label>
               Name And Surname<input type="text" name="name" onChange={handleChange}></input>
