@@ -84,7 +84,7 @@ function Form(props) {
   return (
     <>
       {next ? (
-        <Cheackout reservationID={props.reservationID} />
+        <Cheackout reservationID={grab} />
       ) : (
         <>
           <p>{grab}</p>
