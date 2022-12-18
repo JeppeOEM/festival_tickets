@@ -1,12 +1,33 @@
+@import "./variables";
+
 .card {
+    margin-bottom: 7vh;
+    padding: 2vh 0;
     display: grid;
-    grid-template-columns: repeat(2, minmax(35vw, 1fr));
-    width: 45vw;
+    grid-template-columns: 70% 1fr;
+    grid-gap: 12%;
     justify-content: space-between;
+    // background-color: $button-color;
+    border-bottom: 1px solid $border-color;
     .changeNumber {
-        width: 15%;
+        // width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+    }
+    .price {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    .button {
+        padding: 0 1vw;
+        border-radius: 0;
+        background-color: $button-color;
+        color: $text-color;
+        border: 1px solid $border-color;
+    }
+    .button:hover {
+        background-color: $accent-color;
+        transition: 0.3s ease-out;
     }
 }

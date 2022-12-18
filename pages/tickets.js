@@ -5,7 +5,7 @@ import Camping from "./components/Camping";
 import Areas from "./components/Areas";
 import Participants from "./components/checkout/Participants";
 // stylesheet
-import StyleSheet from "../styles/component/tickets.module.scss";
+import StyleSheet from "../styles/pages/tickets.module.scss";
 
 function Tickets(props) {
   // process status
@@ -44,7 +44,7 @@ function Tickets(props) {
   // objects with data for tickets and camping options
   let ticketOptions = [
     {
-      name: "regular ticket",
+      name: "Regular ticket",
       state: regular,
       stateHandler: setRegular,
       price: 799,
@@ -52,7 +52,7 @@ function Tickets(props) {
       description: "Basic festival pass allowing you to access whole festival area.",
     },
     {
-      name: "v.i.p. ticket",
+      name: "V.I.P. ticket",
       state: vip,
       stateHandler: setVip,
       price: 1299,
@@ -62,57 +62,61 @@ function Tickets(props) {
   ];
 
   let campingOptions = [
-    { name: "basic camping pass", spot: 1, state: basic, stateHandler: setBasic, price: 100, description: "Come with your own tent and set your own rules! The basic camping pass allows you to access the camping area with your equipment." },
-    { name: "pre-setup 2-people tent", spot: 2, state: two, stateHandler: setTwo, price: 299, description: "Avoid the fight for camping space and let us do the job for you! Our crew will put up the tent before your arrival." },
-    { name: "pre-setup 3-people tent", spot: 3, state: three, stateHandler: setThree, price: 399, description: "Avoid the fight for camping space and let us do the job for you! Our crew will put up the tent before your arrival." },
-    { name: "green camping", state: green, spot: 1, stateHandler: setGreen, price: 249, description: "Get a package of sustainable camping equipment!" },
+    { name: "Basic camping pass", spot: 1, state: basic, stateHandler: setBasic, price: 100, description: "Come with your own tent and set your own rules! The basic camping pass allows you to access the camping area with your equipment." },
+    { name: "Pre-setup 2-people tent", spot: 2, state: two, stateHandler: setTwo, price: 299, description: "Avoid the fight for camping space and let us do the job for you! Our crew will put up the tent before your arrival." },
+    { name: "Pre-setup 3-people tent", spot: 3, state: three, stateHandler: setThree, price: 399, description: "Avoid the fight for camping space and let us do the job for you! Our crew will put up the tent before your arrival." },
+    { name: "Green camping", state: green, spot: 1, stateHandler: setGreen, price: 249, description: "Get a package of sustainable camping equipment!" },
   ];
 
   return (
-    <>
+    <div className={StyleSheet.booking}>
       <BookingLayout step1={tickets} step2={camping} step3={area} tickets={ticketOptions} camping={campingOptions} bookingTime={idReceived.timeout}>
         {!tickets && (
           <>
             <h2>Choose your tickets</h2>
             {ticketOptions.map((option) => {
               return (
-                <>
-                  <div className={StyleSheet.card}>
-                    <div className={StyleSheet.cardText}>
-                      <h3>{option.name}</h3>
-                      <p>{option.description}</p>
-                      <h5>max {option.max} tickets per order</h5>
-                    </div>
-                    <div className="actions">
-                      <p>{option.price},- DKK</p>
-                      <div className={StyleSheet.changeNumber}>
-                        <button
-                          onClick={() => {
-                            if (option.state > 0) {
-                              option.stateHandler(option.state - 1);
-                            }
-                          }}
-                        >
-                          -
-                        </button>
-                        <span>{option.state}</span>
-                        <button
-                          onClick={() => {
-                            if (option.state < option.max) {
-                              option.stateHandler(option.state + 1);
-                            }
-                          }}
-                        >
-                          +
-                        </button>
-                      </div>
+                <div className={StyleSheet.card} key={option.name}>
+                  <div className={StyleSheet.cardText}>
+                    <h3>{option.name}</h3>
+                    <p>{option.description}</p>
+                    <h5 className={StyleSheet.limit}>max {option.max} tickets per order</h5>
+                  </div>
+                  <div className="actions">
+                    <p className={StyleSheet.price}>{option.price},- DKK</p>
+                    <div className={StyleSheet.changeNumber}>
+                      <button
+                        className={StyleSheet.button}
+                        onClick={() => {
+                          if (option.state > 0) {
+                            option.stateHandler(option.state - 1);
+                          }
+                        }}
+                      >
+                        -
+                      </button>
+                      <span>{option.state}</span>
+                      <button
+                        className={StyleSheet.button}
+                        onClick={() => {
+                          if (option.state < option.max) {
+                            option.stateHandler(option.state + 1);
+                          }
+                        }}
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
-                </>
+                </div>
               );
             })}
-
-            <button onClick={() => setTickets(true)}>continue</button>
+            <div className={StyleSheet.buttons}>
+              {/* <button onClick={() => setTickets(false)}>back</button> */}
+              <button className={StyleSheet.continue} onClick={() => setTickets(true)}>
+                continue
+              </button>
+            </div>
           </>
         )}
 
@@ -124,7 +128,7 @@ function Tickets(props) {
           <button onClick={() => setTickets(true)}>continue</button>
         </Link> */}
       </BookingLayout>
-    </>
+    </div>
   );
 }
 

@@ -5,10 +5,40 @@ function Steps(props) {
   return (
     <>
       <ul className={StyleSheet.steps}>
-        {props.step1 ? <li className={StyleSheet.done}>Choose the tickets</li> : <li className={StyleSheet.pending}>Choose the tickets</li>}
-        {props.step2 ? <li className={StyleSheet.done}>Choose camping</li> : <li className={StyleSheet.pending}>Choose camping</li>}
-        {props.step3 ? <li className={StyleSheet.done}>Choose camping area</li> : <li className={StyleSheet.pending}>Choose camping area</li>}
-        {props.step4 ? <li className={StyleSheet.done}>Add your data</li> : <li className={StyleSheet.pending}>Add your data</li>}
+        <li className={StyleSheet.active}>
+          <span className={StyleSheet.stepNumber}>1</span>
+          <span>Choose the tickets</span>
+        </li>
+        {props.step1 ? (
+          <li className={StyleSheet.active}>
+            <span className={StyleSheet.stepNumber}>2</span>
+            <span>Choose camping</span>
+          </li>
+        ) : (
+          <li className={StyleSheet.inactive}>
+            <span className={StyleSheet.stepNumber}>2</span>Choose camping
+          </li>
+        )}
+        {props.step2 ? (
+          <li className={StyleSheet.active}>
+            <span className={StyleSheet.stepNumber}>3</span>
+            <span>Choose camping area</span>
+          </li>
+        ) : (
+          <li className={StyleSheet.inactive}>
+            <span className={StyleSheet.stepNumber}>3</span>Choose camping area
+          </li>
+        )}
+        {props.step3 ? (
+          <li className={StyleSheet.active}>
+            <span className={StyleSheet.stepNumber}>4</span>
+            <span>Add your data</span>
+          </li>
+        ) : (
+          <li className={StyleSheet.inactive}>
+            <span className={StyleSheet.stepNumber}>4</span>Add your data
+          </li>
+        )}
       </ul>
     </>
   );
