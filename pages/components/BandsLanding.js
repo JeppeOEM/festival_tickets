@@ -5,11 +5,11 @@ import StyleSheet from "/styles/component/landing.module.scss";
 const Bands = ({ bands }) => {
   return (
     <>
-      <div className={StyleSheet.container} key={bands.id}>
+      <div className={StyleSheet.container} key={bands.name}>
         {bands.map(
           (bands, index) =>
             index < 9 && (
-              <div className={StyleSheet.card} key={bands.id}>
+              <div className={StyleSheet.card} key={bands.name}>
                 <Image
                   src="/band1.jpg"
                   alt={bands.name}
@@ -19,7 +19,7 @@ const Bands = ({ bands }) => {
              (max-width: 1200px) 50vw,
              400px"
                 />
-                <h3 key={bands.id}>{bands.name}</h3>
+                <h3 key={bands.name}>{bands.name}</h3>
               </div>
             )
         )}
