@@ -56,13 +56,17 @@
     .layout {
         position: relative;
         margin: 0 10vw;
+        display: flex;
+        flex-direction: column;
     }
 
     .layoutGrid {
         grid-template-columns: 100%;
     }
     .cart {
+        margin-top: 5vh;
         display: block;
+        align-self: flex-end;
     }
 
     .orderHidden {
@@ -75,6 +79,8 @@
         width: 100vw;
         height: 100vh;
     }
+    
+    
     
 }
 
