@@ -2,9 +2,13 @@ import { useEffect, useState } from "react";
 import Tickets from "../../tickets";
 import Areas from "../Areas";
 import Form from "./Form";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+
 // import { getId } from "..Areas/";
 
 function Participants(props) {
+  const [listRef] = useAutoAnimate();
+
   let number = props.participants;
   // let number = props.ticketsNr;
   // console.log(number);
@@ -55,7 +59,7 @@ function Participants(props) {
         <Form name={formFields} part={formFields} />
       ) : (
         <>
-          <form onSubmit={submit}>
+          <form onSubmit={submit} ref={listRef}>
             {formFields.map((form, index) => {
               return (
                 <div key={index}>

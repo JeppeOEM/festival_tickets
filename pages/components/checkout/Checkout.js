@@ -1,13 +1,13 @@
 import { getData } from "/data/formdata";
 
 const Cheackout = (props) => {
-  console.log(props.d);
+  console.log(props.info);
 
   // post request to fulfill reservation
   function reserveSpots(event) {
     event.preventDefault();
     getData({
-      id: "5555555555",
+      id: Date.now(),
       fullname: props.info.name,
       email: props.info.email,
       city: props.info.city,
