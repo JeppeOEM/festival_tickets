@@ -1,4 +1,5 @@
 import { getData } from "/data/formdata";
+import StyleSheet from "../../../styles/pages/tickets.module.scss";
 
 const Cheackout = (props) => {
   console.log(props.info);
@@ -31,11 +32,17 @@ const Cheackout = (props) => {
 
   return (
     <>
-      <form onSubmit={reserveSpots}>
-        <label>Cards owner Fullname and Lastname</label>
-        <input name="fullname" placeholder="Cards owner Full Name" />
-        <label>Card Full number</label>
-        <input name="cardnumber" placeholder="1234 - 1234 - 1234 - 1234 " />
+      <form className={StyleSheet.form} onSubmit={reserveSpots}>
+        <div className={StyleSheet.fieldColumn}>
+          <label>Cards owner Fullname and Lastname</label>
+          <input name="fullname" placeholder="Cards owner Full Name" />
+        </div>
+
+        <div className={StyleSheet.fieldColumn}>
+          <label>Card Full number</label>
+          <input name="cardnumber" placeholder="1234 - 1234 - 1234 - 1234 " />
+        </div>
+
         <button type="submit">pay</button>
       </form>
     </>

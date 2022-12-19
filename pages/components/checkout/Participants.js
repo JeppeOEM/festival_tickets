@@ -3,6 +3,7 @@ import Tickets from "../../tickets";
 import Areas from "../Areas";
 import Form from "./Form";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import StyleSheet from "../../../styles/pages/tickets.module.scss";
 
 // import { getId } from "..Areas/";
 
@@ -59,30 +60,42 @@ function Participants(props) {
         <Form name={formFields} part={formFields} />
       ) : (
         <>
-          <form onSubmit={submit} ref={listRef}>
+          <form className={StyleSheet.form} onSubmit={submit} ref={listRef}>
+            <h2>Participants</h2>
             {formFields.map((form, index) => {
               return (
-                <div key={index}>
-                  <label>
-                    Participant full name <input name="fullname" type="text" placeholder="Full Name" onChange={(e) => handleFormChange(e, index)} value={form.name} required />
+                <div className={StyleSheet.fieldRow} key={index}>
+                  <label className={StyleSheet.fieldColumn}>
+                    Participant full name <input className={StyleSheet.input} name="fullname" type="text" placeholder="Full Name" onChange={(e) => handleFormChange(e, index)} value={form.name} required />
                   </label>
-                  <label>
+                  <label className={StyleSheet.fieldColumn}>
                     participants age
-                    <input name="age" min="15" max="100" type="number" placeholder="Age" onChange={(e) => handleFormChange(e, index)} value={form.age} required />
+                    <input className={StyleSheet.input} name="age" min="15" max="100" type="number" placeholder="Age" onChange={(e) => handleFormChange(e, index)} value={form.age} required />
                   </label>
                   {/* <button onClick={() => removeField(index)}>delete participan</button> */}
                 </div>
               );
             })}
-
-            {formFields.length < number ? (
-              <button disabled={true}>GO TO CHECKOUT</button>
-            ) : (
-              <button disabled={false} type="submit">
-                GO TO CHECKOUT
-              </button>
-            )}
-            {formFields.length < number ? <button onClick={addFields}>ADD PARTICIPANT</button> : <button disabled={true}>ADD PARTICIPANT</button>}
+            <div className={StyleSheet.buttons}>
+              {formFields.length < number ? (
+                <button disabled={true} className={StyleSheet.disabled}>
+                  GO TO CHECKOUT
+                </button>
+              ) : (
+                <button disabled={false} className={StyleSheet.button} type="submit">
+                  GO TO CHECKOUT
+                </button>
+              )}
+              {formFields.length < number ? (
+                <button onClick={addFields} className={StyleSheet.button}>
+                  ADD PARTICIPANT
+                </button>
+              ) : (
+                <button disabled={true} className={StyleSheet.disabled}>
+                  ADD PARTICIPANT
+                </button>
+              )}
+            </div>
           </form>
         </>
       )}

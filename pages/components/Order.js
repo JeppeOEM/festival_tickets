@@ -5,7 +5,7 @@ function Order(props) {
   const prices = [];
 
   return (
-    <>
+    <div className={StyleSheet.order}>
       <h2>Your order</h2>
       <ul className={StyleSheet.orderList}>
         {order.map((entry) => {
@@ -29,7 +29,7 @@ function Order(props) {
         <p>total:</p>
         <p>{prices.length === 0 ? "0" : `${prices.reduce((a, b) => a + b)},-DKK`}</p>
       </div>
-    </>
+    </div>
   );
 }
 

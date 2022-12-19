@@ -11,6 +11,7 @@ function Areas(props) {
   // const [TheId, getId] = useState(0);
 
   function sendPutRequest(event) {
+    alert(`Great, you booked the spots in ${event.target.id}! When you click "continue", you will have 5 minutes to fill out the forms and complete booking. Otherwise, you will loose your reservation.`);
     const data = {
       area: event.target.id,
       amount: props.spots,
@@ -41,21 +42,31 @@ function Areas(props) {
   return (
     <>
       {/* <Form id={TheId} /> */}
-      <h2>Areas</h2>
+      <h2 className={StyleSheet.h2}>Camping areas</h2>
       {props.areas.map((area) => {
         return (
           <div className={StyleSheet.card} key={area.area}>
-            <h3>{area.area}</h3>
-            {area.available < 0.15 * area.available ? <h5 className={StyleSheet.fewSpots}>Available spots: {area.available}</h5> : <h5>Available spots: {area.available}</h5>}
+            <div className={StyleSheet.cardText}>
+              <h3 className={StyleSheet.h3}>{area.area}</h3>
+              {area.available < 20 ? <h5 className={StyleSheet.fewSpots}>Available spots: {area.available}</h5> : <h5>Available spots: {area.available}</h5>}
+            </div>
 
-            <button id={area.area} onClick={sendPutRequest}>
-              choose
-            </button>
+            <div className={StyleSheet.actions}>
+              {area.available === 0 ? (
+                <button className={StyleSheet.disabled}>choose</button>
+              ) : (
+                <button className={StyleSheet.button} id={area.area} onClick={sendPutRequest}>
+                  choose
+                </button>
+              )}
+            </div>
           </div>
         );
       })}
 
-      <button onClick={props.statusHandler}>Continue</button>
+      <button className={StyleSheet.button} onClick={props.statusHandler}>
+        Continue
+      </button>
     </>
   );
 }

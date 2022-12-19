@@ -4,6 +4,7 @@ import { getData } from "/data/formdata";
 import Areas from "../Areas";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import StyleSheet from "../../../styles/pages/tickets.module.scss";
 
 function Forms(props) {
   const theForm = useRef(null);
@@ -49,33 +50,35 @@ function Forms(props) {
               console.log(props);
 
               return (
-                <Form ref={theForm}>
-                  <div className="field">
+                <Form className={StyleSheet.form} ref={theForm}>
+                  <div className={StyleSheet.fieldColumn}>
                     <label>Name And Surname</label>
-                    <Field name="name" />
+                    <Field className={StyleSheet.input} name="name" />
                     <ErrorMessage name="name" />
                   </div>
-                  <div className="field">
+                  <div className={StyleSheet.fieldColumn}>
                     <label> Email Adresse</label>
-                    <Field name="email" />
+                    <Field className={StyleSheet.input} name="email" />
                     <ErrorMessage name="email" />
                   </div>
-                  <div className="field">
+                  <div className={StyleSheet.fieldColumn}>
                     <label> City </label>
-                    <Field name="city" />
+                    <Field className={StyleSheet.input} name="city" />
                     <ErrorMessage name="city" />
                   </div>
-                  <div className="field">
+                  <div className={StyleSheet.fieldColumn}>
                     <label>Post Code</label>
-                    <Field name="postcode" />
+                    <Field className={StyleSheet.input} name="postcode" />
                     <ErrorMessage name="postcode" />
                   </div>
-                  <div className="field">
-                    <label> fulladdress </label>
-                    <Field name="fulladdress" />
+                  <div className={StyleSheet.fieldColumn}>
+                    <label> Full address </label>
+                    <Field className={StyleSheet.input} name="fulladdress" />
                     <ErrorMessage name="fulladdress" />
                   </div>
-                  <button type="submit">go to payment</button>
+                  <button className={StyleSheet.button} type="submit">
+                    go to payment
+                  </button>
                 </Form>
               );
             }}

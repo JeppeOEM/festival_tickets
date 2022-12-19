@@ -73,12 +73,12 @@ function Tickets(props) {
       <BookingLayout step1={tickets} step2={camping} step3={area} tickets={ticketOptions} camping={campingOptions} bookingTime={idReceived.timeout}>
         {!tickets && (
           <>
-            <h2>Choose your tickets</h2>
+            <h2 className={StyleSheet.h2}>Choose your tickets</h2>
             {ticketOptions.map((option) => {
               return (
                 <div className={StyleSheet.card} key={option.name}>
                   <div className={StyleSheet.cardText}>
-                    <h3>{option.name}</h3>
+                    <h3 className={StyleSheet.h3}>{option.name}</h3>
                     <p>{option.description}</p>
                     <h5 className={StyleSheet.limit}>max {option.max} tickets per order</h5>
                   </div>
@@ -86,7 +86,7 @@ function Tickets(props) {
                     <p className={StyleSheet.price}>{option.price},- DKK</p>
                     <div className={StyleSheet.changeNumber}>
                       <button
-                        className={StyleSheet.button}
+                        className={StyleSheet.changeButton}
                         onClick={() => {
                           if (option.state > 0) {
                             option.stateHandler(option.state - 1);
@@ -97,7 +97,7 @@ function Tickets(props) {
                       </button>
                       <span>{option.state}</span>
                       <button
-                        className={StyleSheet.button}
+                        className={StyleSheet.changeButton}
                         onClick={() => {
                           if (option.state < option.max) {
                             option.stateHandler(option.state + 1);
@@ -113,7 +113,7 @@ function Tickets(props) {
             })}
             <div className={StyleSheet.buttons}>
               {/* <button onClick={() => setTickets(false)}>back</button> */}
-              <button className={StyleSheet.continue} onClick={() => setTickets(true)}>
+              <button className={StyleSheet.button} onClick={() => setTickets(true)}>
                 continue
               </button>
             </div>
@@ -123,11 +123,6 @@ function Tickets(props) {
         {tickets && !camping && <Camping regTickets={regular} vipTickets={vip} options={campingOptions} status={camping} statusHandler={completeCamping} />}
         {camping && !area && <Areas status={area} statusHandler={completeArea} areas={props.areas} spots={spots} idHandler={getID} />}
         {area && <Participants participants={regular + vip} orderResponse={idReceived.id} />}
-
-        {/* orderResponse={idReceived.id} */}
-        {/* <Link href={{ pathname: "/camping", query: { regTickets: regular, vipTickets: vip } }}>
-          <button onClick={() => setTickets(true)}>continue</button>
-        </Link> */}
       </BookingLayout>
     </div>
   );
