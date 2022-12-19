@@ -11,7 +11,9 @@ export default function Nav(props) {
         <div className={style.burger}></div>
         <label htmlFor="burger"></label>
         <div className={style.nav}>
-          <input type="checkbox" className={style.toggle_menu} />
+          <label htmlFor="check">
+            <input type="checkbox" className={style.toggle_menu} />
+          </label>
           <Image src={"/logo.svg"} width={90} height={90} alt="logo" />
           <ul className={style.menu}>
             <li>

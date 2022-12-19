@@ -1,8 +1,22 @@
+import { getData } from "/data/formdata";
+
 const Cheackout = (props) => {
+  console.log(props.d);
+
   // post request to fulfill reservation
   function reserveSpots(event) {
     event.preventDefault();
+    getData({
+      id: "5555555555",
+      fullname: props.info.name,
+      email: props.info.email,
+      city: props.info.city,
+      postcode: props.info.postcode,
+      fulladdress: props.info.fulladdress,
+      ticketHolders: props.part,
+    });
     const id = { id: props.reservationID };
+    console.log(id);
 
     fetch("http://localhost:8080/fullfill-reservation", {
       method: "POST",
