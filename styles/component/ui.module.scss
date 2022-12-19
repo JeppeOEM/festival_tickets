@@ -42,3 +42,9 @@
   color: white;
   font-family: "Courier New", Courier, monospace;
 }
+
+@media (min-width: 220px) and (max-width: 680px) {
+  .changeButton {
+    padding: 1.2vh 4vw;
+  }
+}

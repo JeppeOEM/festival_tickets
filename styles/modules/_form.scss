@@ -32,3 +32,13 @@
         justify-content: space-between;
     }
 }
+
+@media (min-width: 220px) and (max-width: 680px) {
+    .form {
+        .fieldRow {
+            
+            grid-template-columns: 100%;
+            grid-gap: 1vh;
+        }
+    }
+}

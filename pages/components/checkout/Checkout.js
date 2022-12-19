@@ -35,15 +35,17 @@ const Cheackout = (props) => {
       <form className={StyleSheet.form} onSubmit={reserveSpots}>
         <div className={StyleSheet.fieldColumn}>
           <label>Cards owner Fullname and Lastname</label>
-          <input name="fullname" placeholder="Cards owner Full Name" />
+          <input className={StyleSheet.input} name="fullname" placeholder="Cards owner Full Name" />
         </div>
 
         <div className={StyleSheet.fieldColumn}>
           <label>Card Full number</label>
-          <input name="cardnumber" placeholder="1234 - 1234 - 1234 - 1234 " />
+          <input className={StyleSheet.input} name="cardnumber" placeholder="1234 - 1234 - 1234 - 1234 " />
         </div>
 
-        <button type="submit">pay</button>
+        <button className={StyleSheet.button} type="submit">
+          pay
+        </button>
       </form>
     </>
   );

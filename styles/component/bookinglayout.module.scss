@@ -11,13 +11,14 @@
     .info {
         padding-bottom: 10vh;
     }
-    .order {
-        padding: 5vh 3vw;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-        background-color: $input-color;
-    }
+}
+
+.order {
+    padding: 5vh 3vw;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background-color: $input-color;
 }
 
 // steps styling
@@ -45,3 +46,35 @@
         }
     }
 }
+
+.cart {
+    display: none;
+}
+
+@media (min-width: 220px) and (max-width: 680px) {
+
+    .layout {
+        position: relative;
+        margin: 0 10vw;
+    }
+
+    .layoutGrid {
+        grid-template-columns: 100%;
+    }
+    .cart {
+        display: block;
+    }
+
+    .orderHidden {
+        display: none;
+    }
+    .order {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    
+}
+

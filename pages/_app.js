@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 }

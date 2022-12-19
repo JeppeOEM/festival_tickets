@@ -17,10 +17,28 @@
     .changeNumber {
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
     }
     .price {
         font-size: 1.5rem;
         font-weight: 700;
     }    
+}
+
+@media (min-width: 220px) and (max-width: 680px) {
+    .card {
+        grid-template-columns: 100%;
+        padding-bottom: 8vh;
+        .actions {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            align-self: flex-end;
+        }
+        .changeNumber {
+            gap: 5vw;
+        }
+    }
+    
 }
