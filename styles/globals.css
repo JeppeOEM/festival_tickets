@@ -1,11 +1,3 @@
-
-html,
-body {
-  padding: 0;
-  margin: 0;
-  background-color: #080808;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -22,6 +14,9 @@ h2 {
   padding: 0;
   list-style-type: none;
 }
+body {
+  background-color: black;
+}
 
 h3 {
   font-size: 1.8rem;
@@ -32,7 +27,8 @@ h5 {
   font-weight: 300;
 }
 
-p, button {
+p,
+button {
   font-size: 1rem;
 }
 

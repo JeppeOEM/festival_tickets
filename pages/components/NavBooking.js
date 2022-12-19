@@ -24,9 +24,7 @@ export default function Nav(props) {
                 <p>bandss</p>
               </Link>
             </li>
-            <li>
-              <Countdown className={ui.Countdown} date={"2023-02-01T01:02:03"} />
-            </li>
+            <li>{/* <Countdown className={ui.Countdown} date={"2023-02-01T01:02:03"} /> */}</li>
           </ul>
         </div>
       </div>
