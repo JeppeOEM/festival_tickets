@@ -7,7 +7,6 @@ import Footer from "../components/Footer";
 import News from "../components/News";
 import style from "../styles/component/landing.module.scss";
 import ui from "../styles/component/ui.module.scss";
-
 export default function Home({ bands }) {
   return (
     <>
@@ -21,7 +20,7 @@ export default function Home({ bands }) {
         <div className={style.heading}>
           <h1>Ragnarök</h1>
           <Link href="/tickets">
-            <button className={ui.button}>buyyyy tickets</button>
+            <button className={ui.button}>buy tickets</button>
           </Link>
         </div>
       </div>
@@ -63,7 +62,6 @@ export default function Home({ bands }) {
 
 export const getStaticProps = async () => {
   const api = "https://festivalapi.fly.dev/";
-  const local = "http://localhost:8080/";
   const res = await fetch(api + "bands");
   const data = await res.json();
   return {

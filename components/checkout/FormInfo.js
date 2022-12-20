@@ -1,12 +1,13 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Cheackout from "./Checkout";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import StyleSheet from "../../styles/pages/tickets.module.scss";
 
 function FormInfo(props) {
-  const theForm = useRef(null);
+  //NEXT BUTTON
   const [next, setNext] = useState(false);
+  // FIELD DATA
   const [values, setValues] = useState({});
   const initialValues = {
     name: "",
@@ -15,6 +16,7 @@ function FormInfo(props) {
     postcode: "",
     fulladdress: "",
   };
+  // FORM VALIDATION YUP
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Full name is required"),
     email: Yup.string().email().required("Email is required"),
@@ -25,31 +27,21 @@ function FormInfo(props) {
     fulladdress: Yup.string().required("Full address is required"),
   });
 
-  function handleSubmit(values, helpers) {
-    console.log(values);
-    // console.log(helpers);
-    // console.log(values);
+  function handleSubmit(values) {
     setValues(values);
     setNext(true);
   }
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setNext(true);
-  //   // console.log("neww", values);
-  // };
-
-  let grab = props.id;
   return (
     <>
       {next ? (
-        <Cheackout info={values} part={props.part} reservationID={grab} />
+        <Cheackout info={values} part={props.part} />
       ) : (
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
           {(props) => {
             console.log(props);
 
             return (
-              <Form className={StyleSheet.form} ref={theForm}>
+              <Form className={StyleSheet.form}>
                 <div className={StyleSheet.fieldColumn}>
                   <label>Name And Surname</label>
                   <Field name="name" className={StyleSheet.input} />

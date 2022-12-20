@@ -12,3 +12,19 @@ export function getData(payload) {
     body: JSON.stringify(payload),
   });
 }
+
+[
+  {
+    id: "",
+    fullname: "",
+    email: "",
+    city: "",
+    postcode: "",
+    fulladdress: "",
+    ticketHolders: [
+      { fullname: "", age: "" },
+      { fullname: "", age: "" },
+    ],
+    orderId: "",
+  },
+];

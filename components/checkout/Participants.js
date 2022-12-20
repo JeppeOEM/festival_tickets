@@ -3,17 +3,14 @@ import FormInfo from "./FormInfo";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import StyleSheet from "../../styles/pages/tickets.module.scss";
 
-// import { getId } from "..Areas/";
-
 function Participants(props) {
+  //ANIMATION LIBRARY
   const [listRef] = useAutoAnimate();
-  // let number = props.ticketsNr;
-  // console.log(number);
-  const [counter, setCounter] = useState(1);
-  // const [disabled, setDisabled] = useState(false);
+  //NEXT BUTTON
   const [next, setNext] = useState(false);
-  const CheakoutData = [{}];
-  const [formFields, setFormFields] = useState(CheakoutData);
+  // FIELD DATA
+  const [formFields, setFormFields] = useState([{}]);
+
   let number = props.participants;
   const handleFormChange = (e, index) => {
     let data = [...formFields];
@@ -26,27 +23,11 @@ function Participants(props) {
       age: "",
     };
     setFormFields([...formFields, object]);
-    // increase();
-    // submit(e);
   };
-  // const removeField = (index) => {
-  //   let data = [...formFields];
-  //   data.splice(index, 1);
-  //   setFormFields(data);
-  // };
   const submit = (e) => {
     e.preventDefault();
     setNext(true);
-    // console.log("grab da data", formFields);
   };
-  // const increase = () => {
-  //   setCounter((counter) => counter + 1);
-  // };
-
-  // useEffect(() => {
-  //   localStorage.setItem("CheakoutData", JSON.stringify(CheakoutData));
-  // }, [CheakoutData]);
-
   return (
     <>
       {next ? (
@@ -65,12 +46,11 @@ function Participants(props) {
                     participants age
                     <input className={StyleSheet.input} name="age" min="15" max="100" type="number" placeholder="Age" onChange={(e) => handleFormChange(e, index)} value={form.age} required />
                   </label>
-                  {/* <button onClick={() => removeField(index)}>delete participan</button> */}
                 </div>
               );
             })}
             <div className={StyleSheet.buttons}>
-              {formFields.length < number ? (
+              {formFields.length < props.participants ? (
                 <button disabled={true} className={StyleSheet.disabled}>
                   GO TO CHECKOUT
                 </button>
@@ -79,7 +59,7 @@ function Participants(props) {
                   GO TO CHECKOUT
                 </button>
               )}
-              {formFields.length < number ? (
+              {formFields.length < props.participants ? (
                 <button onClick={addFields} className={StyleSheet.button}>
                   ADD PARTICIPANT
                 </button>
