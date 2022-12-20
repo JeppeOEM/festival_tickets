@@ -6,9 +6,11 @@ const Cheackout = (props) => {
 
   // post request to fulfill reservation
   function reserveSpots(event) {
+    const id = { id: props.reservationID };
+    console.log(id.id);
     event.preventDefault();
     getData({
-      id: Date.now(),
+      orderId: id.id,
       fullname: props.info.name,
       email: props.info.email,
       city: props.info.city,
@@ -16,8 +18,6 @@ const Cheackout = (props) => {
       fulladdress: props.info.fulladdress,
       ticketHolders: props.part,
     });
-    const id = { id: props.reservationID };
-    console.log(id);
 
     fetch("http://localhost:8080/fullfill-reservation", {
       method: "POST",
