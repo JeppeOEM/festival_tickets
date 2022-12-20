@@ -21,7 +21,7 @@ export default function Home({ bands }) {
         <div className={style.heading}>
           <h1>Ragnarök</h1>
           <Link href="/tickets">
-            <button className={ui.button}>buy tickets</button>
+            <button className={ui.button}>buyyyy tickets</button>
           </Link>
         </div>
       </div>
