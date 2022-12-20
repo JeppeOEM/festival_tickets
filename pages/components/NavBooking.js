@@ -13,7 +13,7 @@ export default function Nav(props) {
         <div className={style.nav}>
           <label htmlFor="check" />
           <input type="checkbox" className={style.toggle_menu} />
-          <Image src={"/logo.svg"} width={90} height={90} alt="logo" />
+          <Image src={"/logo-horizontal-white.svg"} width={300} height={59} alt="logo" />
           <ul className={style.menu}>
             <li>
               <Link href="./tickets">
