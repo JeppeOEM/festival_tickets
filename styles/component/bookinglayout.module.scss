@@ -11,6 +11,9 @@
     .info {
         padding-bottom: 10vh;
     }
+    .cart {
+        display: none;
+    }
 }
 
 .order {
@@ -47,9 +50,7 @@
     }
 }
 
-.cart {
-    display: none;
-}
+
 
 @media (min-width: 220px) and (max-width: 680px) {
 

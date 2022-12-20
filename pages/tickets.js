@@ -27,7 +27,6 @@ function Tickets(props) {
   // functions to switch between components
 
   function completeCamping() {
-    // console.log("spots:", a + b + c);
     setSpots(basic + two + three);
     setCamping(true);
   }
