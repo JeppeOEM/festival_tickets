@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BookingLayout from "../../layout/bookingLayout";
+/* import BookingLayout from "../../layout/bookingLayout"; */
 import StyleSheet from "/styles/pages/tickets.module.scss";
 
 function Camping(props) {

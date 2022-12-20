@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import BookingLayout from "../layout/bookingLayout";
-import Camping from "./components/Camping";
-import Areas from "./components/Areas";
-import Participants from "./components/checkout/Participants";
+import Camping from "../components/Camping";
+import Areas from "../components/Areas";
+import Participants from "../components/checkout/Participants";
 // stylesheet
 import StyleSheet from "../styles/pages/tickets.module.scss";
 
@@ -57,20 +57,58 @@ function Tickets(props) {
       stateHandler: setVip,
       price: 1299,
       max: 5,
-      description: "This pass allows you to enjoy concerts in a restricted are just below the stage and get your desired meals, drinks and merch using fast track.",
+      description:
+        "This pass allows you to enjoy concerts in a restricted are just below the stage and get your desired meals, drinks and merch using fast track.",
     },
   ];
 
   let campingOptions = [
-    { name: "Basic camping pass", spot: 1, state: basic, stateHandler: setBasic, price: 100, description: "Come with your own tent and set your own rules! The basic camping pass allows you to access the camping area with your equipment." },
-    { name: "Pre-setup 2-people tent", spot: 2, state: two, stateHandler: setTwo, price: 299, description: "Avoid the fight for camping space and let us do the job for you! Our crew will put up the tent before your arrival." },
-    { name: "Pre-setup 3-people tent", spot: 3, state: three, stateHandler: setThree, price: 399, description: "Avoid the fight for camping space and let us do the job for you! Our crew will put up the tent before your arrival." },
-    { name: "Green camping", state: green, spot: 1, stateHandler: setGreen, price: 249, description: "Get a package of sustainable camping equipment!" },
+    {
+      name: "Basic camping pass",
+      spot: 1,
+      state: basic,
+      stateHandler: setBasic,
+      price: 100,
+      description:
+        "Come with your own tent and set your own rules! The basic camping pass allows you to access the camping area with your equipment.",
+    },
+    {
+      name: "Pre-setup 2-people tent",
+      spot: 2,
+      state: two,
+      stateHandler: setTwo,
+      price: 299,
+      description:
+        "Avoid the fight for camping space and let us do the job for you! Our crew will put up the tent before your arrival.",
+    },
+    {
+      name: "Pre-setup 3-people tent",
+      spot: 3,
+      state: three,
+      stateHandler: setThree,
+      price: 399,
+      description:
+        "Avoid the fight for camping space and let us do the job for you! Our crew will put up the tent before your arrival.",
+    },
+    {
+      name: "Green camping",
+      state: green,
+      spot: 1,
+      stateHandler: setGreen,
+      price: 249,
+      description: "Get a package of sustainable camping equipment!",
+    },
   ];
 
   return (
     <div className={StyleSheet.booking}>
-      <BookingLayout step1={tickets} step2={camping} step3={area} tickets={ticketOptions} camping={campingOptions} bookingTime={idReceived.timeout}>
+      <BookingLayout
+        step1={tickets}
+        step2={camping}
+        step3={area}
+        tickets={ticketOptions}
+        camping={campingOptions}
+        bookingTime={idReceived.timeout}>
         {!tickets && (
           <>
             <h2>Choose your tickets</h2>
@@ -91,8 +129,7 @@ function Tickets(props) {
                           if (option.state > 0) {
                             option.stateHandler(option.state - 1);
                           }
-                        }}
-                      >
+                        }}>
                         -
                       </button>
                       <span>{option.state}</span>
@@ -102,8 +139,7 @@ function Tickets(props) {
                           if (option.state < option.max) {
                             option.stateHandler(option.state + 1);
                           }
-                        }}
-                      >
+                        }}>
                         +
                       </button>
                     </div>
@@ -120,8 +156,18 @@ function Tickets(props) {
           </>
         )}
 
-        {tickets && !camping && <Camping regTickets={regular} vipTickets={vip} options={campingOptions} status={camping} statusHandler={completeCamping} />}
-        {camping && !area && <Areas status={area} statusHandler={completeArea} areas={props.areas} spots={spots} idHandler={getID} />}
+        {tickets && !camping && (
+          <Camping
+            regTickets={regular}
+            vipTickets={vip}
+            options={campingOptions}
+            status={camping}
+            statusHandler={completeCamping}
+          />
+        )}
+        {camping && !area && (
+          <Areas status={area} statusHandler={completeArea} areas={props.areas} spots={spots} idHandler={getID} />
+        )}
         {area && <Participants participants={regular + vip} orderResponse={idReceived.id} />}
 
         {/* orderResponse={idReceived.id} */}

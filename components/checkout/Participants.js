@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Tickets from "../../tickets";
-import Areas from "../Areas";
+/* import Tickets from "../../tickets";
+import Areas from "../Areas"; */
 import Form from "./Form";
 // import { getId } from "..Areas/";
 
@@ -60,11 +60,28 @@ function Participants(props) {
               return (
                 <div key={index}>
                   <label>
-                    Participant full name <input name="fullname" type="text" placeholder="Full Name" onChange={(e) => handleFormChange(e, index)} value={form.name} required />
+                    Participant full name{" "}
+                    <input
+                      name='fullname'
+                      type='text'
+                      placeholder='Full Name'
+                      onChange={(e) => handleFormChange(e, index)}
+                      value={form.name}
+                      required
+                    />
                   </label>
                   <label>
                     participants age
-                    <input name="age" min="15" max="100" type="number" placeholder="Age" onChange={(e) => handleFormChange(e, index)} value={form.age} required />
+                    <input
+                      name='age'
+                      min='15'
+                      max='100'
+                      type='number'
+                      placeholder='Age'
+                      onChange={(e) => handleFormChange(e, index)}
+                      value={form.age}
+                      required
+                    />
                   </label>
                   {/* <button onClick={() => removeField(index)}>delete participan</button> */}
                 </div>
@@ -74,11 +91,15 @@ function Participants(props) {
             {formFields.length < number ? (
               <button disabled={true}>GO TO CHECKOUT</button>
             ) : (
-              <button disabled={false} type="submit">
+              <button disabled={false} type='submit'>
                 GO TO CHECKOUT
               </button>
             )}
-            {formFields.length < number ? <button onClick={addFields}>ADD PARTICIPANT</button> : <button disabled={true}>ADD PARTICIPANT</button>}
+            {formFields.length < number ? (
+              <button onClick={addFields}>ADD PARTICIPANT</button>
+            ) : (
+              <button disabled={true}>ADD PARTICIPANT</button>
+            )}
           </form>
         </>
       )}
