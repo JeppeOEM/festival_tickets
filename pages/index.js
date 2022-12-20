@@ -35,7 +35,7 @@ export default function Home({ bands }) {
         <div>
           <h3>REGULAR</h3>
           <ul>
-            <li>you get somehting so cool</li>
+            <li>you get ssssssss so cool</li>
             <li>you get somehting so cool</li>
             <li>you get somehting so cool</li>
             <li>you get somehting so cool</li>
