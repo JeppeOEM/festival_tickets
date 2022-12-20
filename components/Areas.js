@@ -15,7 +15,10 @@ function Areas(props) {
       area: event.target.id,
       amount: props.spots,
     };
-    fetch("http://localhost:8080/reserve-spot", {
+    const api = "https://festivalapi.fly.dev/";
+    const local = "http://localhost:8080/";
+
+    fetch(api + "reserve-spot", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -68,7 +68,9 @@ export default function Home({ bands }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:8080/bands");
+  const api = "https://festivalapi.fly.dev/";
+  const local = "http://localhost:8080/";
+  const res = await fetch(api + "bands");
   const data = await res.json();
   return {
     props: {

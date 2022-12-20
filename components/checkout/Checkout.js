@@ -17,8 +17,9 @@ const Cheackout = (props) => {
     });
     const id = { id: props.reservationID };
     console.log(id);
-
-    fetch("http://localhost:8080/fullfill-reservation", {
+    const api = "https://festivalapi.fly.dev/";
+    const local = "http://localhost:8080/";
+    fetch(api + "fullfill-reservation", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,10 +34,10 @@ const Cheackout = (props) => {
     <>
       <form onSubmit={reserveSpots}>
         <label>Cards owner Fullname and Lastname</label>
-        <input name="fullname" placeholder="Cards owner Full Name" />
+        <input name='fullname' placeholder='Cards owner Full Name' />
         <label>Card Full number</label>
-        <input name="cardnumber" placeholder="1234 - 1234 - 1234 - 1234 " />
-        <button type="submit">pay</button>
+        <input name='cardnumber' placeholder='1234 - 1234 - 1234 - 1234 ' />
+        <button type='submit'>pay</button>
       </form>
     </>
   );
