@@ -5,6 +5,8 @@ const Cheackout = (props) => {
   // post request to fulfill reservation
   function reserveSpots(event) {
     event.preventDefault();
+    const api = "https://festivalapi.fly.dev/";
+    const local = "http://localhost:8080/";
     const id = { id: props.reservationID };
     getData({
       orderId: id.id,
@@ -15,7 +17,7 @@ const Cheackout = (props) => {
       fulladdress: props.info.fulladdress,
       ticketHolders: props.part,
     });
-    fetch("http://localhost:8080/fullfill-reservation", {
+    fetch(api + "fullfill-reservation", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
