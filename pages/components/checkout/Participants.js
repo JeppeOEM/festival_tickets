@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
-import Tickets from "../../tickets";
-import Areas from "../Areas";
-import Form from "./Form";
+import FormInfo from "./FormInfo";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 // import { getId } from "..Areas/";
 
 function Participants(props) {
   const [listRef] = useAutoAnimate();
-
-  let number = props.participants;
   // let number = props.ticketsNr;
   // console.log(number);
   const [counter, setCounter] = useState(1);
@@ -17,10 +13,7 @@ function Participants(props) {
   const [next, setNext] = useState(false);
   const CheakoutData = [{}];
   const [formFields, setFormFields] = useState(CheakoutData);
-
-  // if (formFields.length === 2) {
-  //   setDisabled(false);
-  // }
+  let number = props.participants;
   const handleFormChange = (e, index) => {
     let data = [...formFields];
     data[index][e.target.name] = e.target.value;
@@ -56,7 +49,7 @@ function Participants(props) {
   return (
     <>
       {next ? (
-        <Form name={formFields} part={formFields} />
+        <FormInfo name={formFields} part={formFields} id={props.orderResponse} />
       ) : (
         <>
           <form onSubmit={submit} ref={listRef}>
@@ -68,7 +61,7 @@ function Participants(props) {
                   </label>
                   <label>
                     participants age
-                    <input name="age" min="15" max="100" type="number" placeholder="Age" onChange={(e) => handleFormChange(e, index)} value={form.age} required />
+                    <input name="age" min="15" max="100" type="text" placeholder="Age" onChange={(e) => handleFormChange(e, index)} value={form.age} required />
                   </label>
                   {/* <button onClick={() => removeField(index)}>delete participan</button> */}
                 </div>

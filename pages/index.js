@@ -1,20 +1,14 @@
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import BandsLanding from "./components/BandsLanding";
 import { Component } from "react";
-import { mountCounter } from "dynamic-countdown";
 import NavBooking from "./components/NavBooking";
 import Footer from "./components/Footer";
 import News from "./components/News";
 import style from "../styles/component/landing.module.scss";
 import ui from "../styles/component/ui.module.scss";
 
-// import Participants from "./components/cheackout/Participants";
-
 export default function Home({ bands }) {
-  // const myCountdown = mountCounter("08/01/2021 16:20", "DH", "2", "en", "primary-light-inverted");
-
   return (
     <>
       <Head>

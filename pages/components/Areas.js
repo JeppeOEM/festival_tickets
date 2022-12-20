@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Form from "./checkout/Form";
+import FormInfo from "./checkout/FormInfo";
 // stylesheet
 import StyleSheet from "../../styles/pages/tickets.module.scss";
 

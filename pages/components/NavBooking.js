@@ -11,9 +11,8 @@ export default function Nav(props) {
         <div className={style.burger}></div>
         <label htmlFor="burger"></label>
         <div className={style.nav}>
-          <label htmlFor="check">
-            <input type="checkbox" className={style.toggle_menu} />
-          </label>
+          <label htmlFor="check" />
+          <input type="checkbox" className={style.toggle_menu} />
           <Image src={"/logo.svg"} width={90} height={90} alt="logo" />
           <ul className={style.menu}>
             <li>
@@ -26,7 +25,9 @@ export default function Nav(props) {
                 <p>bandss</p>
               </Link>
             </li>
-            <li>{/* <Countdown className={ui.Countdown} date={"2023-02-01T01:02:03"} /> */}</li>
+            <li>
+              <Countdown className={ui.Countdown} date={Date.now() + 300000000} />
+            </li>
           </ul>
         </div>
       </div>
