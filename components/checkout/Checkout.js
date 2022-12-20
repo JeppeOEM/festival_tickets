@@ -1,13 +1,16 @@
 import { getData } from "/data/formdata";
+import StyleSheet from "../../styles/pages/tickets.module.scss";
 
 const Cheackout = (props) => {
-  console.log(props.d);
+  console.log(props.info);
 
   // post request to fulfill reservation
   function reserveSpots(event) {
+    const id = { id: props.reservationID };
+    console.log(id.id);
     event.preventDefault();
     getData({
-      id: "5555555555",
+      orderId: id.id,
       fullname: props.info.name,
       email: props.info.email,
       city: props.info.city,
@@ -15,11 +18,13 @@ const Cheackout = (props) => {
       fulladdress: props.info.fulladdress,
       ticketHolders: props.part,
     });
-    const id = { id: props.reservationID };
-    console.log(id);
-    const api = "https://festivalapi.fly.dev/";
-    const local = "http://localhost:8080/";
-    fetch(api + "fullfill-reservation", {
+    // const id = { id: props.reservationID };
+    // console.log(id);
+    // const api = "https://festivalapi.fly.dev/";
+    // const local = "http://localhost:8080/";
+    // fetch(api + "fullfill-reservation", {
+
+    fetch("http://localhost:8080/fullfill-reservation", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,12 +37,20 @@ const Cheackout = (props) => {
 
   return (
     <>
-      <form onSubmit={reserveSpots}>
-        <label>Cards owner Fullname and Lastname</label>
-        <input name='fullname' placeholder='Cards owner Full Name' />
-        <label>Card Full number</label>
-        <input name='cardnumber' placeholder='1234 - 1234 - 1234 - 1234 ' />
-        <button type='submit'>pay</button>
+      <form className={StyleSheet.form} onSubmit={reserveSpots}>
+        <div className={StyleSheet.fieldColumn}>
+          <label>Cards owner Fullname and Lastname</label>
+          <input className={StyleSheet.input} name="fullname" placeholder="Cards owner Full Name" />
+        </div>
+
+        <div className={StyleSheet.fieldColumn}>
+          <label>Card Full number</label>
+          <input className={StyleSheet.input} name="cardnumber" placeholder="1234 - 1234 - 1234 - 1234 " />
+        </div>
+
+        <button className={StyleSheet.button} type="submit">
+          pay
+        </button>
       </form>
     </>
   );

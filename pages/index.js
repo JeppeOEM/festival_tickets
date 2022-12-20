@@ -1,20 +1,14 @@
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import BandsLanding from "../components/BandsLanding";
 import { Component } from "react";
-import { mountCounter } from "dynamic-countdown";
 import NavBooking from "../components/NavBooking";
 import Footer from "../components/Footer";
 import News from "../components/News";
 import style from "../styles/component/landing.module.scss";
 import ui from "../styles/component/ui.module.scss";
 
-// import Participants from "./components/cheackout/Participants";
-
 export default function Home({ bands }) {
-  // const myCountdown = mountCounter("08/01/2021 16:20", "DH", "2", "en", "primary-light-inverted");
-
   return (
     <>
       <Head>
@@ -22,11 +16,11 @@ export default function Home({ bands }) {
       </Head>
 
       <div className={style.topSec}>
-        <video className={style.video} src='/BgVid.mp4' autoPlay muted loop />
+        <video className={style.video} src="/BgVid.mp4" autoPlay muted loop />
         <NavBooking ass={"this"} />
         <div className={style.heading}>
           <h1>Ragnarök</h1>
-          <Link href='./tickets'>
+          <Link href="/tickets">
             <button className={ui.button}>buy tickets</button>
           </Link>
         </div>
@@ -37,9 +31,9 @@ export default function Home({ bands }) {
         <div>
           <h3>REGULAR</h3>
           <ul>
-            <li>you get somehting so cool</li>
-            <li>you get somehting so cool</li>
-            <li>you get somehting so cool</li>
+            <li>you get ssssssss so cool</li>
+            <li>you get asssss so cool</li>
+            <li>you get nnnnnn so cool</li>
             <li>you get somehting so cool</li>
           </ul>
         </div>
@@ -58,7 +52,7 @@ export default function Home({ bands }) {
         <p>get the latset news about the line-up and the latest news about Ragnarök festival</p>
         <form>
           {/* <label>Newsletter</label> */}
-          <input type='text' name='newsletter' placeholder=' TYPE YOUR EMAIL'></input>
+          <input type="text" name="newsletter" placeholder=" TYPE YOUR EMAIL"></input>
           <button className={ui.button}>Subscribe</button>
         </form>
       </div>

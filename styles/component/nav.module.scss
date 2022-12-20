@@ -89,7 +89,7 @@
 }
 .toggle_menu {
   position: absolute;
-  right: 4.5%;
+  right: 3%;
   top: 32%;
   height: 2rem;
   cursor: pointer;
@@ -137,11 +137,14 @@
     align-items: center;
     position: fixed;
     top: 0;
-    right: -1500px;
+    right: -900px;
     height: 100%;
     width: 100%;
-    transition: 200ms ease-out;
-    background-color: black;
+    transition: 300ms ease-out;
+    background-color: rgb(131, 98, 98);
+  }
+  .nav {
+    justify-content: flex-start;
   }
   //   .fixed_nav {
   //     position: fixed;
