@@ -1,0 +1,79 @@
+@import 'styles/variables.sass'
+
+.entirePage
+    margin-top: 0rem
+    padding-top: 0rem
+    margin-bottom: 5%
+
+.selectorBtn.active
+    color: $white
+    text-decoration: underline
+
+.big
+    text-align: center
+    font-size: $header
+
+.selection
+
+    padding-top: 0rem
+    margin-left: 5%
+
+.hr
+
+    margin-left: 5%
+    margin-right: 5%
+
+.dayBox
+    margin-left: 0
+
+.filterText
+    padding-bottom: 0.5rem
+
+    font-size: $text
+
+.selection
+    display: flex
+    flex-direction: row
+
+.selection span
+
+    padding-right: 1rem
+    a
+        color: $white
+        &:hover
+            cursor: pointer
+            color: $accent
+
+.selectorBtn
+    font-size: $smallP
+    &:hover
+        cursor: pointer
+        color: $accent
+
+.droDownBox
+
+.dropDownItem
+    display: inline
+    &:first-child
+        margin-left: 5%
+
+.select
+
+    width: 100vw
+    margin-left: 5%
+    display: flex
+    flex-wrap: wrap
+    flex-direction: row
+    a
+        text-decoration: none
+        span
+            color: white
+            font-size: $text
+            padding-right: 1rem
+            &:hover
+                cursor: pointer
+                color: $accent
+
+@media (max-width: $mobile)
+    .big
+        display: none

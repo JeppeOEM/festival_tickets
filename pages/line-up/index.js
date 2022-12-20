@@ -1,7 +1,7 @@
-import BandList from "../../components/Line-up/BandList";
-import BandListGenres from "../../components/Line-up/BandListGenres";
-import Dropdown from "../../components/Line-up/Dropdown";
-import FilterBox from "../../components/Line-up/FilterBox";
+import BandList from "../../pages/components/Line-up/BandList";
+import BandListGenres from "../../pages/components/Line-up/BandListGenres";
+import Dropdown from "../../pages/components/Line-up/Dropdown";
+import FilterBox from "../../pages/components/Line-up/FilterBox";
 
 import Test from "../../components/Line-up/Test";
 import playingWhen from "../../js_functions/playingWhen";

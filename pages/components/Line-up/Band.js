@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import kebabCase from "../../js_functions/kebabCase";
-import BandGrid from "../../styles/components/line-up/BandGrid.module.sass";
+import kebabCase from "../../../js_functions/kebabCase";
+import BandGrid from "../styles/components/line-up/BandGrid.module.sass";
 
 function Band(props) {
   let logo = null;
