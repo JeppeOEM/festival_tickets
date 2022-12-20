@@ -56,8 +56,7 @@ function Tickets(props) {
       stateHandler: setVip,
       price: 1299,
       max: 5,
-      description:
-        "This pass allows you to enjoy concerts in a restricted are just below the stage and get your desired meals, drinks and merch using fast track.",
+      description: "This pass allows you to enjoy concerts in a restricted are just below the stage and get your desired meals, drinks and merch using fast track.",
     },
   ];
 
@@ -68,8 +67,7 @@ function Tickets(props) {
       state: basic,
       stateHandler: setBasic,
       price: 100,
-      description:
-        "Come with your own tent and set your own rules! The basic camping pass allows you to access the camping area with your equipment.",
+      description: "Come with your own tent and set your own rules! The basic camping pass allows you to access the camping area with your equipment.",
     },
     {
       name: "Pre-setup 2-people tent",
@@ -77,8 +75,7 @@ function Tickets(props) {
       state: two,
       stateHandler: setTwo,
       price: 299,
-      description:
-        "Avoid the fight for camping space and let us do the job for you! Our crew will put up the tent before your arrival.",
+      description: "Avoid the fight for camping space and let us do the job for you! Our crew will put up the tent before your arrival.",
     },
     {
       name: "Pre-setup 3-people tent",
@@ -86,8 +83,7 @@ function Tickets(props) {
       state: three,
       stateHandler: setThree,
       price: 399,
-      description:
-        "Avoid the fight for camping space and let us do the job for you! Our crew will put up the tent before your arrival.",
+      description: "Avoid the fight for camping space and let us do the job for you! Our crew will put up the tent before your arrival.",
     },
     {
       name: "Green camping",
@@ -101,13 +97,7 @@ function Tickets(props) {
 
   return (
     <div className={StyleSheet.booking}>
-      <BookingLayout
-        step1={tickets}
-        step2={camping}
-        step3={area}
-        tickets={ticketOptions}
-        camping={campingOptions}
-        bookingTime={idReceived.timeout}>
+      <BookingLayout step1={tickets} step2={camping} step3={area} tickets={ticketOptions} camping={campingOptions} bookingTime={idReceived.timeout}>
         {!tickets && (
           <>
             <h2 className={StyleSheet.h2}>Choose your tickets</h2>
@@ -128,7 +118,8 @@ function Tickets(props) {
                           if (option.state > 0) {
                             option.stateHandler(option.state - 1);
                           }
-                        }}>
+                        }}
+                      >
                         -
                       </button>
                       <span>{option.state}</span>
@@ -138,7 +129,8 @@ function Tickets(props) {
                           if (option.state < option.max) {
                             option.stateHandler(option.state + 1);
                           }
-                        }}>
+                        }}
+                      >
                         +
                       </button>
                     </div>
@@ -155,18 +147,8 @@ function Tickets(props) {
           </>
         )}
 
-        {tickets && !camping && (
-          <Camping
-            regTickets={regular}
-            vipTickets={vip}
-            options={campingOptions}
-            status={camping}
-            statusHandler={completeCamping}
-          />
-        )}
-        {camping && !area && (
-          <Areas status={area} statusHandler={completeArea} areas={props.areas} spots={spots} idHandler={getID} />
-        )}
+        {tickets && !camping && <Camping regTickets={regular} vipTickets={vip} options={campingOptions} status={camping} statusHandler={completeCamping} />}
+        {camping && !area && <Areas status={area} statusHandler={completeArea} areas={props.areas} spots={spots} idHandler={getID} />}
         {area && <Participants participants={regular + vip} orderResponse={idReceived.id} />}
       </BookingLayout>
     </div>
