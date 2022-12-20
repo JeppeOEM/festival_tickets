@@ -16,12 +16,12 @@ export default function Nav(props) {
           <Image src={"/logo.svg"} width={90} height={90} alt="logo" />
           <ul className={style.menu}>
             <li>
-              <Link href="./tickets">
+              <Link href="/tickets">
                 <p>{props.ass}</p>
               </Link>
             </li>
             <li>
-              <Link href="./tickets">
+              <Link href="/tickets">
                 <p>bandss</p>
               </Link>
             </li>
