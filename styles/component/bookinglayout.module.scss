@@ -2,21 +2,26 @@
 
 .layout {
     margin-left: 10vw;
-    // background-color: $background-color;
 }
 
 .layoutGrid {
     display: grid;
     grid-template-columns: 50vw 1fr;
     grid-gap: 8vw;
-    .order {
-        padding: 0 3vw;
-        height: 100vh;
-        // width: 100%;
-        position: sticky;
-        top: 0;
-        background-color: #2d2d2d;
+    .info {
+        padding-bottom: 10vh;
     }
+    .cart {
+        display: none;
+    }
+}
+
+.order {
+    padding: 5vh 3vw;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background-color: $input-color;
 }
 
 // steps styling
@@ -27,17 +32,56 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    .stepNumber {
-        margin-right: 1vw;
-        padding: 0 0.4vw;
-        border: 1px solid;
-        border-radius: 50%;
-    }
+    
     .active {
-        color: $accent-color;
+        color: $text-color;
         font-weight: 700;
+        .stepNumber {
+            margin-right: 1vw;
+            color: $accent-color;
+        }
     }
     .inactive {
         color: $inactive-color;
+        .stepNumber {
+            margin-right: 1vw;
+            color: $inactive-color;
+        }
     }
 }
+
+
+
+@media (min-width: 220px) and (max-width: 680px) {
+
+    .layout {
+        position: relative;
+        margin: 0 10vw;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .layoutGrid {
+        grid-template-columns: 100%;
+    }
+    .cart {
+        margin-top: 5vh;
+        display: block;
+        align-self: flex-end;
+    }
+
+    .orderHidden {
+        display: none;
+    }
+    .order {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    
+    
+}
+

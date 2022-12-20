@@ -1,12 +1,50 @@
+@import "../modules/variables";
+
 .button {
   padding: 1rem 3rem 1rem 3rem;
-  border: 1px solid #fff;
+  border: 1px solid $border-color;
   cursor: pointer;
+  border-radius: 0;
+  background-color: $accent-color;
+  color: $text-color;
 }
+
+.changeButton {
+  padding: 1vh 1.3vw;
+  border: 1px solid $border-color;
+  cursor: pointer;
+  border-radius: 0;
+  background-color: $accent-color;
+  color: $text-color;
+}
+
+.button:hover, .changeButton:hover {
+  background-color: $button-color;
+  border: 1px solid $accent-color;
+  transition: 0.3s ease-out;
+}
+
+
+.disabled {
+  padding: 1rem 3rem 1rem 3rem;
+  border-radius: 0;
+  background-color: $button-color;
+  color: $text-color;
+  border: 1px solid $border-color;
+  opacity: 50%;
+}
+
+
 .Countdown {
   background-color: black;
   padding: 1rem;
   font-size: 1.7rem;
   color: white;
   font-family: "Courier New", Courier, monospace;
+}
+
+@media (min-width: 220px) and (max-width: 680px) {
+  .changeButton {
+    padding: 1.2vh 4vw;
+  }
 }

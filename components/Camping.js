@@ -8,20 +8,20 @@ function Camping(props) {
 
   return (
     <>
-      <h2>Choose camping options</h2>
+      <h2 className={StyleSheet.h2}>Choose camping options</h2>
       <p>You have {copy} people left</p>
       {props.options.map((option) => {
         return (
           <div className={StyleSheet.card} key={option.name}>
             <div className={StyleSheet.cardText}>
-              <h3>{option.name}</h3>
+              <h3 className={StyleSheet.h3}>{option.name}</h3>
               <p>{option.description}</p>
             </div>
             <div className={StyleSheet.actions}>
               <p className={StyleSheet.price}>{option.price},- DKK</p>
               <div className={StyleSheet.changeNumber}>
                 <button
-                  className={StyleSheet.button}
+                  className={StyleSheet.changeButton}
                   onClick={() => {
                     if (option.state > 0 && copy < allTickets) {
                       setCopy(copy + option.spot);
@@ -35,7 +35,7 @@ function Camping(props) {
                 </button>
                 <span>{option.state}</span>
                 <button
-                  className={StyleSheet.button}
+                  className={StyleSheet.changeButton}
                   onClick={() => {
                     if (copy - option.spot >= 0) {
                       setCopy(copy - option.spot);
@@ -54,7 +54,7 @@ function Camping(props) {
         );
       })}
 
-      <button className={StyleSheet.continue} onClick={props.statusHandler}>
+      <button className={StyleSheet.button} onClick={props.statusHandler}>
         continue
       </button>
     </>

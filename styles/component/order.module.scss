@@ -12,9 +12,26 @@
     }
 }
 
+.close {
+    display: none;
+}
+
 .total {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+@media (min-width: 220px) and (max-width: 680px) {
+    .order {
+        display: flex;
+        flex-direction: column;
+        padding: 5vh 10vw;
+    }
+
+    .close {
+        display: block;
+        align-self: flex-end;
+    }
 }
