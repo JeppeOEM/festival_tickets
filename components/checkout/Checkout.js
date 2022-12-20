@@ -1,5 +1,5 @@
 import { getData } from "/data/formdata";
-import StyleSheet from "../../../styles/pages/tickets.module.scss";
+import StyleSheet from "../../styles/pages/tickets.module.scss";
 
 const Cheackout = (props) => {
   console.log(props.info);

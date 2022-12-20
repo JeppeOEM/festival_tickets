@@ -2,9 +2,9 @@ import Head from "next/head";
 import Link from "next/link";
 import BandsLanding from "../components/BandsLanding";
 import { Component } from "react";
-import NavBooking from "./components/NavBooking";
-import Footer from "./components/Footer";
-import News from "./components/News";
+import NavBooking from "../components/NavBooking";
+import Footer from "../components/Footer";
+import News from "../components/News";
 import style from "../styles/component/landing.module.scss";
 import ui from "../styles/component/ui.module.scss";
 

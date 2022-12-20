@@ -11,7 +11,6 @@ const Bands = ({ bands }) => {
             index < 9 && (
               <div className={StyleSheet.card} key={bands.name}>
                 <Image
-                  src={bands.logo}
                   alt={bands.name}
                   width={370}
                   height={230}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import FormInfo from "./FormInfo";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import StyleSheet from "../../../styles/pages/tickets.module.scss";
+import StyleSheet from "../../styles/pages/tickets.module.scss";
 
 // import { getId } from "..Areas/";
 

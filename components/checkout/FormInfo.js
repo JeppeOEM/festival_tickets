@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import Cheackout from "./Checkout";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import StyleSheet from "../../../styles/pages/tickets.module.scss";
+import StyleSheet from "../../styles/pages/tickets.module.scss";
 
 function FormInfo(props) {
   const theForm = useRef(null);
