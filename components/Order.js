@@ -1,4 +1,4 @@
-import StyleSheet from "../../styles/component/order.module.scss";
+import StyleSheet from "/styles/component/order.module.scss";
 
 function Order(props) {
   let order = props.order[0].concat(props.order[1]);
@@ -19,7 +19,7 @@ function Order(props) {
                 <span>
                   {entry.name}: {entry.state}
                 </span>
-                <span className="item-price">{entry.price * entry.state},- DKK</span>
+                <span className='item-price'>{entry.price * entry.state},- DKK</span>
               </li>
             );
           }

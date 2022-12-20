@@ -1,4 +1,4 @@
-import StyleSheet from "../../styles/component/bookinglayout.module.scss";
+import StyleSheet from "/styles/component/bookinglayout.module.scss";
 
 function Steps(props) {
   // console.log(props.step1);

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Form from "./checkout/Form";
 // stylesheet
-import StyleSheet from "../../styles/pages/tickets.module.scss";
+import StyleSheet from "/styles/pages/tickets.module.scss";
 
 function Areas(props) {
   // state to save the response from the server
@@ -46,7 +46,11 @@ function Areas(props) {
         return (
           <div className={StyleSheet.card} key={area.area}>
             <h3>{area.area}</h3>
-            {area.available < 0.15 * area.available ? <h5 className={StyleSheet.fewSpots}>Available spots: {area.available}</h5> : <h5>Available spots: {area.available}</h5>}
+            {area.available < 0.15 * area.available ? (
+              <h5 className={StyleSheet.fewSpots}>Available spots: {area.available}</h5>
+            ) : (
+              <h5>Available spots: {area.available}</h5>
+            )}
 
             <button id={area.area} onClick={sendPutRequest}>
               choose

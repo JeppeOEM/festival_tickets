@@ -1,6 +1,6 @@
 import { useState } from "react";
 import BookingLayout from "../../layout/bookingLayout";
-import StyleSheet from "../../styles/pages/tickets.module.scss";
+import StyleSheet from "/styles/pages/tickets.module.scss";
 
 function Camping(props) {
   const allTickets = props.regTickets + props.vipTickets;
@@ -30,8 +30,7 @@ function Camping(props) {
                       return;
                     }
                     console.log(copy);
-                  }}
-                >
+                  }}>
                   -
                 </button>
                 <span>{option.state}</span>
@@ -46,8 +45,7 @@ function Camping(props) {
                       alert("You do not have enough tickets for that option. Try to pick different camping options.");
                       return;
                     }
-                  }}
-                >
+                  }}>
                   +
                 </button>
               </div>
