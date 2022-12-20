@@ -184,9 +184,10 @@ function Tickets(props) {
 export async function getServerSideProps() {
   // console.log();
   // runs ONLY at build time, not in a browser
-
+  const api = "https://festivalapi.fly.dev/";
+  const local = "http://localhost:8080/";
   // response is an object
-  const response = await fetch("http://localhost:8080/available-spots");
+  const response = await fetch(api + "available-spots");
 
   // data is an array of objects (one object for each area in this case)
   const data = await response.json();
