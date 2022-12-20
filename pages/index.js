@@ -20,7 +20,7 @@ export default function Home({ bands }) {
         <NavBooking ass={"this"} />
         <div className={style.heading}>
           <h1>Ragnarök</h1>
-          <Link href="./tickets">
+          <Link href="/tickets">
             <button className={ui.button}>buy tickets</button>
           </Link>
         </div>
@@ -33,7 +33,7 @@ export default function Home({ bands }) {
           <ul>
             <li>you get ssssssss so cool</li>
             <li>you get asssss so cool</li>
-            <li>you get somehting so cool</li>
+            <li>you get nnnnnn so cool</li>
             <li>you get somehting so cool</li>
           </ul>
         </div>
