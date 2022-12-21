@@ -20,7 +20,7 @@ export default function Home({ bands }) {
         <div className={style.heading}>
           <h1>Prepare for the battle of all times.</h1>
           <Link href="/tickets">
-            <button className={ui.landingButton}>buy tickets</button>
+            <button className={ui.landingButton}>BUY TICKETS!!</button>
           </Link>
         </div>
       </div>

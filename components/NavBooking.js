@@ -16,13 +16,15 @@ export default function Nav(props) {
           <Image src={"/logo-horizontal-white.svg"} width={300} height={59} alt="logo" />
           <ul className={style.menu}>
             <li>
-              <Link href="/tickets">
-                <p>{props.ass}</p>
+              <Link href={"https://regal-malabi-70039b.netlify.app/line-up"}>
+                {" "}
+                <p>LINE-UP</p>{" "}
               </Link>
             </li>
             <li>
               <Link href="/tickets">
-                <p>bandss</p>
+                {" "}
+                <p>TICKETS</p>{" "}
               </Link>
             </li>
             <li>

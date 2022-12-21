@@ -34,7 +34,7 @@ function FormInfo(props) {
   return (
     <>
       {next ? (
-        <Cheackout info={values} part={props.part} />
+        <Cheackout info={values} part={props.part} reservationID={props.id} />
       ) : (
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
           {(props) => {
