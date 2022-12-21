@@ -27,6 +27,7 @@ const Cheackout = (props) => {
       .then((response) => {
         console.log(response);
         alert("Thank you for the purchase!");
+        window.location.href = "https://clever-pithivier-713c08.netlify.app/";
       })
       .catch((err) => console.error(err));
   }

@@ -45,7 +45,7 @@ function FormInfo(props) {
                 <div className={StyleSheet.fieldColumn}>
                   <label>Name And Surname</label>
                   <Field name="name" className={StyleSheet.input} />
-                  <ErrorMessage name="name" />
+                  <ErrorMessage name="name" className={StyleSheet.error} />
                 </div>
                 <div className={StyleSheet.fieldColumn}>
                   <label> Email Adresse</label>
@@ -55,17 +55,17 @@ function FormInfo(props) {
                 <div className={StyleSheet.fieldColumn}>
                   <label> City </label>
                   <Field name="city" className={StyleSheet.input} />
-                  <ErrorMessage name="city" />
+                  <ErrorMessage name="city" className={StyleSheet.error} />
                 </div>
                 <div className={StyleSheet.fieldColumn}>
                   <label>Post Code</label>
                   <Field name="postcode" className={StyleSheet.input} />
-                  <ErrorMessage name="postcode" />
+                  <ErrorMessage name="postcode" className={StyleSheet.error} />
                 </div>
                 <div className={StyleSheet.fieldColumn}>
                   <label> fulladdress </label>
                   <Field name="fulladdress" className={StyleSheet.input} />
-                  <ErrorMessage name="fulladdress" />
+                  <ErrorMessage name="fulladdress" className={StyleSheet.error} />
                 </div>
                 <button type="submit" className={StyleSheet.button}>
                   go to payment
