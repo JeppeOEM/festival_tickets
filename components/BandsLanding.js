@@ -23,7 +23,7 @@ const Bands = ({ bands }) => {
             )
         )}
       </div>
-      <Link href={"/bands"} className={StyleSheet.center}>
+      <Link href={"https://regal-malabi-70039b.netlify.app/line-up"} className={StyleSheet.center}>
         VIEW ALL LINE-UP 2023
       </Link>
       <Link href={"/Form"}></Link>

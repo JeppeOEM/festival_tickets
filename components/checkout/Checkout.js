@@ -24,7 +24,10 @@ const Cheackout = (props) => {
       },
       body: JSON.stringify(id),
     })
-      .then((response) => console.log(response))
+      .then((response) => {
+        console.log(response);
+        alert("Thank you for the purchase!");
+      })
       .catch((err) => console.error(err));
   }
 
