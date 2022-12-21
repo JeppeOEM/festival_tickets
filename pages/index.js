@@ -18,9 +18,9 @@ export default function Home({ bands }) {
         <video className={style.video} src="/BgVid.mp4" autoPlay muted loop />
         <NavBooking ass={"this"} />
         <div className={style.heading}>
-          <h1>Ragnarök</h1>
+          <h1>Prepare for the battle of all times.</h1>
           <Link href="/tickets">
-            <button className={ui.button}>buy tickets</button>
+            <button className={ui.landingButton}>buy tickets</button>
           </Link>
         </div>
       </div>
@@ -30,22 +30,25 @@ export default function Home({ bands }) {
         <div>
           <h3>REGULAR</h3>
           <ul>
-            <li>you get ssssssss so cool</li>
-            <li>you get asssss so cool</li>
-            <li>you get nnnnnn so cool</li>
-            <li>you get somehting so cool</li>
+            <li>Access to the festival area</li>
+            <li>Access to the camping</li>
+            <li>Access to all stages</li>
+            <li>Access to merch and food areas</li>
           </ul>
         </div>
         <div>
           <h3>VIP</h3>
           <ul>
-            <li>you get somehting even cooler</li>
-            <li>you get somehting even cooler</li>
-            <li>you get somehting even cooler</li>
-            <li>you get somehting even cooler</li>
+            <li>Everything from regular ticket</li>
+            <li>Access to V.I.P. area on concerts just below the stage</li>
+            <li>Possibility to buy merch and food using fast track</li>
+            <li>V.I.P. only festival t-shirt</li>
           </ul>
         </div>
       </div>
+      <Link href="/tickets" className={style.singleButton}>
+        <button className={ui.button}>buy tickets</button>
+      </Link>
       <div className={style.newsLetter}>
         <h3>SUBSCRIBE TO THE NEWSLETTER</h3>
         <p>get the latset news about the line-up and the latest news about Ragnarök festival</p>

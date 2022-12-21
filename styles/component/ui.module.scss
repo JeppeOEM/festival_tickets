@@ -9,6 +9,15 @@
   color: $text-color;
 }
 
+.landingButton {
+  padding: 1rem 3rem 1rem 3rem;
+  border: 1px solid $border-color;
+  cursor: pointer;
+  border-radius: 0;
+  background-color: $background-color;
+  color: $text-color;
+}
+
 .changeButton {
   padding: 1vh 1.3vw;
   border: 1px solid $border-color;
@@ -24,6 +33,13 @@
   transition: 0.3s ease-out;
 }
 
+.landingButton:hover {
+  border: 1px solid $border-color;
+  background-color: $accent-color;
+  color: $text-color;
+  transition: 0.3s ease-out;
+}
+
 
 .disabled {
   padding: 1rem 3rem 1rem 3rem;
@@ -36,11 +52,11 @@
 
 
 .Countdown {
-  background-color: black;
+  // background-color: black;
   padding: 1rem;
   font-size: 1.7rem;
   color: white;
-  font-family: "Courier New", Courier, monospace;
+  // font-family: "Courier New", Courier, monospace;
 }
 
 @media (min-width: 220px) and (max-width: 680px) {
