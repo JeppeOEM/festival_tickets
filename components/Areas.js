@@ -11,7 +11,7 @@ function Areas(props) {
   // const [TheId, getId] = useState(0);
 
   function sendPutRequest(event) {
-    alert(`Great, you booked the spots in ${event.target.id}! When you click "continue", you will have 5 minutes to fill out the forms and complete booking. Otherwise, you will loose your reservation.`);
+    alert(`Great, you booked the spots in ${event.target.id}! From now on you have 5 minutes to fill out the forms and complete booking. Otherwise, you will loose your reservation.`);
     const data = {
       area: event.target.id,
       amount: props.spots,
