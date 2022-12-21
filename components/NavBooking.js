@@ -26,7 +26,7 @@ export default function Nav(props) {
               </Link>
             </li>
             <li>
-              <Countdown className={ui.Countdown} date={Date.now() + 300000000} />
+              <Countdown className={ui.Countdown} date={Date.now() + 9990999550} />
             </li>
           </ul>
         </div>

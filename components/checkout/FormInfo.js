@@ -18,7 +18,7 @@ function FormInfo(props) {
   };
   // FORM VALIDATION YUP
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Full name is required"),
+    name: Yup.string().required("<p>Full name is required</p>"),
     email: Yup.string().email().required("Email is required"),
     city: Yup.string().required("City is required"),
     postcode: Yup.number()

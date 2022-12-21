@@ -55,13 +55,13 @@
   margin-bottom: 5rem;
 }
 .news {
-  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 5rem;
   margin: 0 0 8rem 0;
+  padding-bottom: 5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.289);
 
   div {
@@ -162,8 +162,8 @@
   gap: 2rem;
 
   // svg {
-    // background-color: white;
-    // padding: 0.2rem;
-    // border-radius: 1px;
+  // background-color: white;
+  // padding: 0.2rem;
+  // border-radius: 1px;
   // }
 }

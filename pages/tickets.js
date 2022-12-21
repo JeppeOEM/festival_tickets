@@ -4,7 +4,7 @@ import BookingLayout from "../layout/bookingLayout";
 import Camping from "../components/Camping";
 import Areas from "../components/Areas";
 import Participants from "../components/checkout/Participants";
-// import NavBooking from "../components/NavBooking";
+import NavBooking from "../components/NavBooking";
 
 // stylesheet
 import StyleSheet from "../styles/pages/tickets.module.scss";
@@ -99,7 +99,6 @@ function Tickets(props) {
 
   return (
     <div className={StyleSheet.booking}>
-      {/* <NavBooking /> */}
       <BookingLayout step1={tickets} step2={camping} step3={area} tickets={ticketOptions} camping={campingOptions} bookingTime={idReceived.timeout}>
         {!tickets && (
           <>
