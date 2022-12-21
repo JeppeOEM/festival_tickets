@@ -22,26 +22,11 @@
   align-items: center;
   background-color: $background-color;
   z-index: 55;
-  //   backdrop-filter: blur(5px);
-  //   -webkit-backdrop-filter: blur(5px);
-  //   width: 100%;
-  //   padding-right: 3rem;
-  //   padding-left: 3rem;
-  //   padding-top: 2rem;
-  //   padding-bottom: 2rem;
-  //   z-index: 590;
   transition: 0.5s ease-in-out;
-  //   ul {
-  //     display: flex;
-  //     width: 10%;
-  //     gap: 3rem;
-  //     // width: 100%;
-  //   }
 }
 
 .menu {
   display: flex;
-  //   position: relative;
   gap: 3rem;
   width: 40%;
   justify-content: flex-end;
@@ -49,18 +34,9 @@
 }
 .menu :nth-child(3) {
   min-width: 215px;
-
-  // padding: 1rem 3rem 1rem 3rem;
-  // margin-left: 4rem;
   position: relative;
 }
-// .menu :nth-child(3)::after {
-//   content: "days hours minutes seconds";
-//   position: absolute;
-//   width: 15rem;
-//   bottom: 0;
-//   left: 0;
-// }
+
 .burger {
   position: fixed;
   top: 3.3rem;
@@ -105,21 +81,6 @@
 .toggle_menu {
   display: none;
 }
-// .fixed_nav input:checked ~ .burger {
-//   width: 30px;
-// }
-
-// .fixed_nav input:checked ~ .burger::before {
-//   top: 0;
-//   transform: rotate(-45deg);
-//   width: 30px;
-// }
-// .fixed_nav input:checked ~ .burger::after {
-//   top: 0;
-//   transform: rotate(45deg);
-//   width: 30px;
-// }
-
 .fixed_nav input:checked .burger {
   transform: rotate(-90deg);
 }
@@ -146,14 +107,12 @@
     height: 100%;
     width: 100%;
     transition: 300ms ease-out;
-    background-color: rgb(131, 98, 98);
+    background-color: $background-color;
   }
   .nav {
     justify-content: flex-start;
   }
-  //   .fixed_nav {
-  //     position: fixed;
-  //   }
+
   .fixed_nav input:checked ~ .menu {
     right: 0;
   }
