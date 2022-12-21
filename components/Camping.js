@@ -23,21 +23,26 @@ function Camping(props) {
                 <button
                   className={StyleSheet.changeButton}
                   onClick={() => {
-                    if (option.state > 0 && copy < allTickets) {
+                    if (option.name === "Green camping") {
+                      option.stateHandler(option.state - 1);
+                    } else if (option.state > 0 && copy < allTickets) {
                       setCopy(copy + option.spot);
                       option.stateHandler(option.state - 1);
                     } else {
                       return;
                     }
                     console.log(copy);
-                  }}>
+                  }}
+                >
                   -
                 </button>
                 <span>{option.state}</span>
                 <button
                   className={StyleSheet.changeButton}
                   onClick={() => {
-                    if (copy - option.spot >= 0) {
+                    if (option.name === "Green camping") {
+                      option.stateHandler(option.state + 1);
+                    } else if (copy - option.spot >= 0) {
                       setCopy(copy - option.spot);
                       option.stateHandler(option.state + 1);
                       // console.log(option.stateHandler);
@@ -45,7 +50,8 @@ function Camping(props) {
                       alert("You do not have enough tickets for that option. Try to pick different camping options.");
                       return;
                     }
-                  }}>
+                  }}
+                >
                   +
                 </button>
               </div>

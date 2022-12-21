@@ -14,13 +14,14 @@
     .cart {
         display: none;
     }
-    .order {
-        padding: 5vh 3vw;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-        background-color: $input-color;
-    }
+}
+
+.orderVisible {
+    padding: 5vh 3vw;
+    // height: 100vh;
+    position: sticky;
+    top: 0;
+    background-color: $input-color;
 }
 
 
@@ -80,9 +81,6 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-    }
-    
-    
-    
+    }   
 }
 

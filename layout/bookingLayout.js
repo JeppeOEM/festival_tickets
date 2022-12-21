@@ -24,7 +24,7 @@ function BookingLayout(props) {
           </section>
           <div>{props.children}</div>
         </div>
-        <div className={clicked ? StyleSheet.order : StyleSheet.orderHidden}>
+        <div className={clicked ? StyleSheet.orderVisible : StyleSheet.orderHidden}>
           <Order order={[props.tickets, props.camping]} modalHandler={close} />
         </div>
       </section>
